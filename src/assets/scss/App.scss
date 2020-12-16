@@ -1,1 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
+
+.search-bar {
+  align-items: center;
+  margin: 1rem;
+  position: relative;
+
+  &-button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0.75rem;
+  }
+}
