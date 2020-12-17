@@ -1,18 +1,29 @@
 import {useState} from 'react'
+import useSearch from '../hooks/useSearch'
+// import { useSearch } from '../contexts/searchContext'
 
 const Search = () => {
 	const [searchQuery, setSearchQuery] = useState(null)
+	const { companies, loading, search } = useSearch(searchQuery)
+	// const { search } = useSearch()
 
 	const handleChange = (e) => {
 		setSearchQuery(e.target.value)
-		console.log(searchQuery)
+
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		// console.log('companies', companies)
+		// search(searchQuery)
+		// search(searchQuery)
 
-		console.log('search', searchQuery)
+		console.log('companies', companies)
+
+	
+		// console.log('search', searchQuery)
 	}
+
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
