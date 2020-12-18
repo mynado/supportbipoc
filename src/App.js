@@ -2,14 +2,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './assets/scss/App.scss'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
-import Search from './components/Search';
+import SearchBar from './components/search/SearchBar';
 
 function App() {
 	return (
 		<BrowserRouter>
 			<div className="App">
 				<Navigation />
-				<Search />
+				<SearchBar />
 				<div className="container">
 					<Routes>
 						<Route path="/">
