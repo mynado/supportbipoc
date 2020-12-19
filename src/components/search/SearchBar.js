@@ -18,7 +18,7 @@ const SearchBar = () => {
 						className="search-bar-input form-control"
 						id="search-query"
 						aria-describedby="search"
-						placeholder={query}
+						placeholder={query ? query : 'Search...'}
 						/>
 					<button className="search-bar-button" type="submit">🔍</button>
 				</div>
