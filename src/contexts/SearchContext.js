@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../firebase'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const SearchContext = React.createContext()
 
@@ -9,6 +9,8 @@ const SearchProvider = (props) => {
 	const [loading, setLoading] = useState(true)
 	const [searchQuery, setSearchQuery] = useState(null)
 	const navigate = useNavigate()
+	const search = useLocation().search;
+	const query = new URLSearchParams(search).get('q');
 
 	const getCompanies = (query) => {
 		const unsubscribe = db.collection('companies')
@@ -45,8 +47,15 @@ const SearchProvider = (props) => {
 	}
 
 	useEffect(() => {
-
-	}, [])
+		if (query) {
+			getCompanies(query)
+			let currentUrlParams = new URLSearchParams(window.location.search);
+			currentUrlParams.set('q', query);
+			navigate(window.location.pathname + "?" + currentUrlParams.toString());
+		} else {
+			return
+		}
+	}, [query])
 
 
 	const contextValues = {
