@@ -33,6 +33,12 @@ const SearchProvider = (props) => {
 		navigate('/search')
 		return unsubscribe
 	}
+
+	const setUrl = (query) => {
+		let currentUrlParams = new URLSearchParams(window.location.search);
+		currentUrlParams.set('q', query);
+		navigate(window.location.pathname + "?" + currentUrlParams.toString());
+	}
 	
 	const handleChange = (e) => {
 		setSearchQuery(e.target.value)
@@ -41,17 +47,13 @@ const SearchProvider = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		getCompanies(searchQuery)
-		let currentUrlParams = new URLSearchParams(window.location.search);
-		currentUrlParams.set('q', searchQuery);
-		navigate(window.location.pathname + "?" + currentUrlParams.toString());
+		setUrl(searchQuery)
 	}
 
 	useEffect(() => {
 		if (query) {
 			getCompanies(query)
-			let currentUrlParams = new URLSearchParams(window.location.search);
-			currentUrlParams.set('q', query);
-			navigate(window.location.pathname + "?" + currentUrlParams.toString());
+			setUrl(query)
 		} else {
 			return
 		}
