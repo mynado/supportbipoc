@@ -40,6 +40,9 @@ const SearchProvider = (props) => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		getCompanies(searchQuery)
+		let currentUrlParams = new URLSearchParams(window.location.search);
+		currentUrlParams.set('q', searchQuery);
+		navigate(window.location.pathname + "?" + currentUrlParams.toString());
 	}
 
 	useEffect(() => {
