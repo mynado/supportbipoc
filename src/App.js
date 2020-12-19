@@ -1,24 +1,25 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './assets/scss/App.scss'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
-import SearchBar from './components/search/SearchBar';
+import SearchPage from './components/search/SearchPage'
 
 function App() {
 	return (
-		<BrowserRouter>
 			<div className="App">
 				<Navigation />
-				<SearchBar />
 				<div className="container">
 					<Routes>
 						<Route path="/">
 							<Home />
 						</Route>
+
+						<Route path="/search">
+							<SearchPage />
+						</Route>
 					</Routes>
 				</div>
 			</div>
-		</BrowserRouter>
 	);
 }
 
