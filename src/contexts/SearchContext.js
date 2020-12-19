@@ -34,7 +34,6 @@ const SearchProvider = (props) => {
 	
 	const handleChange = (e) => {
 		setSearchQuery(e.target.value)
-		
 	}
 
 	const handleSubmit = (e) => {
