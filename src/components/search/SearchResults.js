@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { SearchContext } from '../../contexts/SearchContext'
+import SearchResultCard from './SearchResultCard'
 
 const SearchResult = () => {
 	const appContext = useContext(SearchContext)
@@ -7,15 +8,15 @@ const SearchResult = () => {
 
 	return (
 		<>
-			{
-				companies
-				? (companies.map(company => (
-					<div key={company.id}>
-						<h2>{company.name}</h2>
-					</div>
-				)))
-				: 'Finns inga sökresultat'
-			}
+			<div className="">
+				{
+					companies
+					? (companies.map(company => (
+						<SearchResultCard company={company} key={company.id}/>
+					)))
+					: 'Finns inga sökresultat'
+				}
+			</div>
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { db } from '../firebase'
 import { useNavigate, useLocation } from 'react-router-dom'
 
@@ -8,14 +8,15 @@ const SearchProvider = (props) => {
 	const [companies, setCompanies] = useState(null)
 	const [loading, setLoading] = useState(true)
 	const [searchQuery, setSearchQuery] = useState(null)
+	const [filter, setFilter] = useState(null)
 	const navigate = useNavigate()
 	const search = useLocation().search;
 	const query = new URLSearchParams(search).get('q');
 
-	const getCompanies = (query) => {
+	const getCompanies = (query, order = "name") => {
 		const unsubscribe = db.collection('companies')
 		.where('search_term', 'array-contains', query)
-		.orderBy('name')
+		.orderBy(order)
 		.onSnapshot(snapshot => {
 			setLoading(true)
 			const snapShotCompanies = []
@@ -33,6 +34,13 @@ const SearchProvider = (props) => {
 		navigate('/search')
 		return unsubscribe
 	}
+
+	const sortResults = useCallback(
+		(val) => {
+			console.log('val', val)
+			getCompanies(query, val)
+			setUrl(query)
+	}, []);
 
 	const setUrl = (query) => {
 		let currentUrlParams = new URLSearchParams(window.location.search);
@@ -62,10 +70,12 @@ const SearchProvider = (props) => {
 
 	const contextValues = {
 		loading,
+		getCompanies,
 		companies,
 		searchQuery,
 		handleChange,
-		handleSubmit
+		handleSubmit,
+		sortResults,
 	}
 	
 	return (

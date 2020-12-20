@@ -12,3 +12,13 @@
     right: 0.75rem;
   }
 }
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  display: none;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  display: block;
+}
