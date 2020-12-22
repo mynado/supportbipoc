@@ -4,7 +4,7 @@ import useCompany from '../../hooks/useCompany'
 
 const Company = () => {
 	const { companyName } = useParams()
-	const { company, loading } = useCompany(companyName.replace('-', ' '))
+	const { company, loading } = useCompany(companyName)
 	const navigate = useNavigate()
 
 	if (loading) {

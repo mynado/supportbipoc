@@ -14,7 +14,7 @@ const SearchResultCard = (props) => {
 						))
 					}
 					<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<Link to={`/company/${props.company.name.replace(' ', '-')}`} className="btn btn-primary">Go somewhere</Link>
+					<Link to={`/company/${props.company.slug}`} className="btn btn-primary">Go somewhere</Link>
 				</div>
 			</div>
 		</>

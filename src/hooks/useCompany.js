@@ -7,7 +7,7 @@ const useCompany = (companyName) => {
 
 	useEffect(() => {
 		db.collection('companies')
-		.where('name', '==', companyName)
+		.where('slug', '==', companyName)
 		.onSnapshot(snapshot => {
 			setLoading(true)
 			const snapShotCompanies = []
