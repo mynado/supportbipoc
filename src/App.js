@@ -4,7 +4,6 @@ import Home from './components/Home'
 import Navigation from './components/Navigation'
 import SearchPage from './components/search/SearchPage'
 import Company from './components/company/Company'
-import AdminLogin from './components/admin/AdminLogin'
 
 function App() {
 	return (
@@ -14,10 +13,6 @@ function App() {
 					<Routes>
 						<Route path="/">
 							<Home />
-						</Route>
-
-						<Route path="/admin">
-							<AdminLogin />
 						</Route>
 
 						<Route path="/company">
