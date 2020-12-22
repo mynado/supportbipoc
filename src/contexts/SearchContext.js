@@ -8,12 +8,11 @@ const SearchProvider = (props) => {
 	const [companies, setCompanies] = useState(null)
 	const [loading, setLoading] = useState(true)
 	const [searchQuery, setSearchQuery] = useState(null)
-	const [filter, setFilter] = useState(null)
 	const navigate = useNavigate()
 	const search = useLocation().search;
 	const query = new URLSearchParams(search).get('q');
 
-	const getCompanies = (query, order = "name") => {
+	const getCompanies = useCallback ((query, order = "name") => {
 		const unsubscribe = db.collection('companies')
 		.where('search_term', 'array-contains', query)
 		.orderBy(order)
@@ -33,20 +32,19 @@ const SearchProvider = (props) => {
 		})
 		navigate('/search')
 		return unsubscribe
-	}
+	}, [navigate])
+
+	const setUrl = useCallback ((query) => {
+		let currentUrlParams = new URLSearchParams(window.location.search);
+		currentUrlParams.set('q', query);
+		navigate("/search?" + currentUrlParams.toString());
+	}, [navigate])
 
 	const sortResults = useCallback(
 		(val) => {
-			console.log('val', val)
 			getCompanies(query, val)
 			setUrl(query)
-	}, []);
-
-	const setUrl = (query) => {
-		let currentUrlParams = new URLSearchParams(window.location.search);
-		currentUrlParams.set('q', query);
-		navigate(window.location.pathname + "?" + currentUrlParams.toString());
-	}
+	}, [getCompanies, query, setUrl]);
 	
 	const handleChange = (e) => {
 		setSearchQuery(e.target.value)
@@ -65,7 +63,7 @@ const SearchProvider = (props) => {
 		} else {
 			return
 		}
-	}, [query])
+	}, [query, setUrl, getCompanies])
 
 
 	const contextValues = {
