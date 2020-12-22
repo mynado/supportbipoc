@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminPanel = () => {
+const AdminHome = () => {
 	return (
 		<div>
 			<p>Admin Panel</p>
@@ -8,4 +8,4 @@ const AdminPanel = () => {
 	)
 }
 
-export default AdminPanel
+export default AdminHome
