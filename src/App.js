@@ -1,39 +1,52 @@
 import { Route, Routes } from 'react-router-dom'
 import './assets/scss/App.scss'
+import AuthContextProvider from './contexts/AuthContext'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
+import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
+import AdminPanel from './components/admin/AdminPanel'
 import SearchPage from './components/search/SearchPage'
 import Company from './components/company/Company'
 
 function App() {
 	return (
-			<div className="App">
-				<Navigation />
-				<div className="container">
-					<Routes>
-						<Route path="/">
-							<Home />
-						</Route>
-
-						<Route path="/admin">
-							<AdminLogin />
-						</Route>
-
-						<Route path="/company">
-
-							<Route path="/:companyName">
-								<Company />
+			<AuthContextProvider>
+				<div className="App">
+					<Navigation />
+					<div className="container">
+						<Routes>
+							<Route path="/">
+								<Home />
 							</Route>
-						</Route>
+
+							<Route path="/admin">
+								<Route path={"/"}>
+									<AdminLogin />
+								</Route>
+								
+								<AuthRoute path="/home">
+									<AdminPanel />
+								</AuthRoute>
+							</Route>
+
+							
+
+							<Route path="/company">
+
+								<Route path="/:companyName">
+									<Company />
+								</Route>
+							</Route>
 
 
-						<Route path="/search">
-							<SearchPage />
-						</Route>
-					</Routes>
+							<Route path="/search">
+								<SearchPage />
+							</Route>
+						</Routes>
+					</div>
 				</div>
-			</div>
+			</AuthContextProvider>
 	);
 }
 

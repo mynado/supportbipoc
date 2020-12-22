@@ -1,13 +1,25 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 
 const AdminLogin = () => {
 	const emailRef = useRef()
 	const passwordRef = useRef()
+	const [error, setError] = useState(null)
+	const [loading, setLoading] = useState(false)
+	const { login } = useAuth()
+	const navigate = useNavigate()
 
 	const handleSubmit = async e => {
 		e.preventDefault()
-		console.log('email', emailRef.current.value)
-		console.log('password', passwordRef.current.value)
+		try {
+			setLoading(true)
+			await login(emailRef.current.value, passwordRef.current.value)
+			navigate('/admin/home')
+		} catch (e) {
+			setError("Could not log in. Please check your email address and your password.")
+			setLoading(false)
+		}
 	}
 	return (
 		<>
