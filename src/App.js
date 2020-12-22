@@ -30,8 +30,6 @@ function App() {
 								</AuthRoute>
 							</Route>
 
-							
-
 							<Route path="/company">
 
 								<Route path="/:companyName">
