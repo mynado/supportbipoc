@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
 const AdminLogin = () => {
@@ -26,6 +26,7 @@ const AdminLogin = () => {
 			<div className="card">
 				<div className="card-body">
 					<h5 className="card-title">Admin Login</h5>
+						{error && (<div className="alert alert-danger">{error}</div>)}
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
 								<label htmlFor="exampleInputEmail1">Email</label>
@@ -49,7 +50,7 @@ const AdminLogin = () => {
 									autoComplete="on"
 									required/>
 							</div>
-							<button type="submit" className="btn btn-primary">Login</button>
+							<button disabled={loading} type="submit" className="btn btn-primary">Login</button>
 						</form>
 				</div>
 			</div>
