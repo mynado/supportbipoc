@@ -29,26 +29,34 @@ const Navigation = () => {
 
 					<div className={open ? 'dropdown-open' : 'dropdown-collapse'} id="navbarNav">
 						<ul className="navbar-nav">
-							<li className="nav-item active">
-								<NavLink to="/">Home <span className="sr-only">(current)</span></NavLink>
-							</li>
-							<li className="nav-item active">
-								<NavLink to="/">Kategorier <span className="sr-only">(current)</span></NavLink>
-							</li>
-							<li className="nav-item active">
-								<NavLink to="/">Om oss <span className="sr-only">(current)</span></NavLink>
-							</li>
-							<li className="nav-item active">
-								<NavLink to="/">Kontakt <span className="sr-only">(current)</span></NavLink>
-							</li>
-
 							{
 								currentUser ? (
-									<li className="nav-item">
-										<NavLink to="/admin" onClick={handleLogout}>Logout</NavLink>
-									</li>
+									<div className="navbar-admin">
+										<li className="nav-item">
+											<NavLink to="/admin/add-company">
+												Add Company
+											</NavLink>
+										</li>
+										<li className="nav-item">
+											<NavLink to="/admin" onClick={handleLogout}>Logout</NavLink>
+										</li>
+									</div>
 								) : (
-									""
+									<div className="navbar-user">
+										<li className="nav-item active">
+											<NavLink to="/">Home <span className="sr-only">(current)</span></NavLink>
+										</li>
+										<li className="nav-item active">
+											<NavLink to="/">Kategorier <span className="sr-only">(current)</span></NavLink>
+										</li>
+										<li className="nav-item active">
+											<NavLink to="/">Om oss <span className="sr-only">(current)</span></NavLink>
+										</li>
+										<li className="nav-item active">
+											<NavLink to="/">Kontakt <span className="sr-only">(current)</span></NavLink>
+										</li>
+									</div>
+
 								)
 							}
 						</ul>

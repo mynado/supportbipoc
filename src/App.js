@@ -8,6 +8,7 @@ import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
 import SearchPage from './components/search/SearchPage'
 import Company from './components/company/Company'
+import AdminAddCompany from './components/admin/AdminAddCompany'
 
 function App() {
 	return (
@@ -27,6 +28,10 @@ function App() {
 								
 								<AuthRoute path="/home">
 									<AdminHome />
+								</AuthRoute>
+
+								<AuthRoute path="/add-company">
+									<AdminAddCompany />
 								</AuthRoute>
 							</Route>
 
