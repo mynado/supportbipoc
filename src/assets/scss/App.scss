@@ -13,12 +13,12 @@
   }
 }
 
-.dropdown-menu.inactive {
-  opacity: 0;
-  display: none;
+.dropdown-open {
+  width: 80%;
+  display: block;
 }
 
-.dropdown-menu.active {
-  opacity: 1;
-  display: block;
+.dropdown-collapse {
+  width: 0%;
+  display: none;
 }

@@ -15,6 +15,10 @@ const AuthContextProvider = (props) => {
 		return auth.signInWithEmailAndPassword(email, password)
 	}
 
+	const logout = () => {
+		return auth.signOut()
+	}
+
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
 
@@ -30,6 +34,7 @@ const AuthContextProvider = (props) => {
 		currentUser,
 		loading,
 		login,
+		logout,
 	}
 	return (
 		<AuthContext.Provider value={contextValues}>
