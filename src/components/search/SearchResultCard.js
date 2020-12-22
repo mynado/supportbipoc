@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SearchResultCard = (props) => {
+	console.log(props)
 	return (
 		<>
 			<div className="card">
@@ -13,7 +15,7 @@ const SearchResultCard = (props) => {
 						))
 					}
 					<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<a href="#" className="btn btn-primary">Go somewhere</a>
+					<Link to={`/company/${props.company.name}`} className="btn btn-primary">Go somewhere</Link>
 				</div>
 			</div>
 		</>

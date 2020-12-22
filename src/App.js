@@ -3,6 +3,7 @@ import './assets/scss/App.scss'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
 import SearchPage from './components/search/SearchPage'
+import Company from './components/company/Company'
 
 function App() {
 	return (
@@ -13,6 +14,14 @@ function App() {
 						<Route path="/">
 							<Home />
 						</Route>
+
+						<Route path="/company">
+
+							<Route path="/:companyName">
+								<Company />
+							</Route>
+						</Route>
+
 
 						<Route path="/search">
 							<SearchPage />
