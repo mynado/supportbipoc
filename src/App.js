@@ -10,6 +10,7 @@ import SearchPage from './components/search/SearchPage'
 import CompanyPage from './components/companies/CompanyPage'
 import AdminAddCompany from './components/admin/AdminAddCompany'
 import Companies from './components/companies/Companies'
+import CompanyEdit from './components/companies/CompanyEdit'
 
 function App() {
 	return (
@@ -42,7 +43,13 @@ function App() {
 								</Route>
 
 								<Route path="/:companyName">
-									<CompanyPage />
+									<Route path="/">
+										<CompanyPage />
+									</Route>
+
+									<AuthRoute path="/edit">
+										<CompanyEdit />
+									</AuthRoute>
 								</Route>
 							</Route>
 

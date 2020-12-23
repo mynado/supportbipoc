@@ -23,7 +23,7 @@ const CompanyPage = () => {
 				{
 				currentUser && (
 					<div className="mt-3">
-						<Link to="/admin/edit-company" className="btn btn-primary">Ändra</Link>
+						<Link to={`/companies/${company.slug}/edit`} className="btn btn-primary">Ändra</Link>
 					</div>
 				)
 			}
