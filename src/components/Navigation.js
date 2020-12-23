@@ -33,7 +33,7 @@ const Navigation = () => {
 								currentUser ? (
 									<div className="navbar-admin">
 										<li className="nav-item">
-											<NavLink to="/admin/show-companies">
+											<NavLink to="/companies">
 												Visa alla företag
 											</NavLink>
 										</li>

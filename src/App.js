@@ -7,9 +7,9 @@ import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
 import SearchPage from './components/search/SearchPage'
-import CompanyPage from './components/company/CompanyPage'
+import CompanyPage from './components/companies/CompanyPage'
 import AdminAddCompany from './components/admin/AdminAddCompany'
-import Companies from './components/company/Companies'
+import Companies from './components/companies/Companies'
 
 function App() {
 	return (
