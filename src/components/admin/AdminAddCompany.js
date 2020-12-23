@@ -72,13 +72,6 @@ const AdminAddCompany = () => {
 									<option value="salon">Salong</option>
 								</select>
 							</div>
-							{/* <div className="form-group">
-								<label>Kategori</label>
-								<input
-									type="text"
-									className="form-control"
-									ref={categoryRef}/>
-							</div> */}
 							<div className="form-group">
 								<label>Information</label>
 								<textarea 

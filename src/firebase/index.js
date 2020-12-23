@@ -21,4 +21,7 @@ const auth = firebase.auth()
 // get firebase firestore instance
 const db = firebase.firestore()
 
-export { auth, db, firebase as default }
+// get firebase storage instance
+const storage = firebase.storage()
+
+export { auth, db, storage, firebase as default }
