@@ -6,7 +6,7 @@ const useCompany = (companyName) => {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		db.collection('companies')
+		const unsubscribe = db.collection('companies')
 		.where('slug', '==', companyName)
 		.onSnapshot(snapshot => {
 			setLoading(true)
@@ -22,6 +22,8 @@ const useCompany = (companyName) => {
 			setCompany(snapShotCompanies[0])
 			setLoading(false)
 		})
+
+		return unsubscribe
 	}, [companyName])
 
 	return { company, loading }
