@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { db } from '../../firebase'
 import useCompany from '../../hooks/useCompany'
+import UploadImage from '../images/UploadImage'
 
 const CompanyEdit = () => {
 	const nameRef = useRef()
@@ -11,7 +12,7 @@ const CompanyEdit = () => {
 	const slugRef = useRef()
 	const searchTermRef = useRef()
 	const { companyName } = useParams()
-	const { company, loading } = useCompany(companyName)
+	const { company, loading, images } = useCompany(companyName)
 	const [formLoading, setFormLoading] = useState(false)
 	const [error, setError] = useState(false)
 	const navigate = useNavigate()
@@ -19,8 +20,6 @@ const CompanyEdit = () => {
 	if (loading) {
 		return (<p>Loading...</p>)
 	}
-
-	console.log('company in edit', company)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
@@ -39,7 +38,7 @@ const CompanyEdit = () => {
 				search_term: searchTermArray,
 			})
 
-			navigate(`/admin/home`)
+			navigate(`/companies/${company.slug}`)
 		} catch (e) {
 			setError(e.message)
 			setFormLoading(false)
@@ -106,6 +105,17 @@ const CompanyEdit = () => {
 									defaultValue={company.search_term}
 									ref={searchTermRef}/>
 							</div>
+							<div>
+								{
+									images
+									? (images.map(image => (
+										<img src={image.url} className="img-thumbnail" alt="" key={image.id}/>
+									)))
+									: ''
+								}
+							</div>
+							
+							<UploadImage company={company} />
 							<button disabled={formLoading} type="submit" className="btn btn-primary">Update</button>
 						</form>
 				</div>

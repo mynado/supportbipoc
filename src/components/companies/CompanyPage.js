@@ -6,7 +6,7 @@ import useCompany from '../../hooks/useCompany'
 const CompanyPage = () => {
 	const { currentUser } = useAuth()
 	const { companyName } = useParams()
-	const { company, loading } = useCompany(companyName)
+	const { company, loading, images } = useCompany(companyName)
 	const navigate = useNavigate()
 
 	if (loading) {
@@ -15,6 +15,15 @@ const CompanyPage = () => {
 
 	return (
 		<div>
+			<div>
+				{
+					images
+					? (images.map(image => (
+						<img src={image.url} className="img-thumbnail" alt="" key={image.id}/>
+					)))
+					: ''
+				}
+			</div>
 			<h1>{company.name}</h1>
 			<p>{company.address}</p>
 
