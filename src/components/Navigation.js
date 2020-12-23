@@ -33,8 +33,13 @@ const Navigation = () => {
 								currentUser ? (
 									<div className="navbar-admin">
 										<li className="nav-item">
+											<NavLink to="/admin/show-companies">
+												Visa alla företag
+											</NavLink>
+										</li>
+										<li className="nav-item">
 											<NavLink to="/admin/add-company">
-												Add Company
+												Lägg till företag
 											</NavLink>
 										</li>
 										<li className="nav-item">

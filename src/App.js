@@ -7,8 +7,9 @@ import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
 import SearchPage from './components/search/SearchPage'
-import Company from './components/company/Company'
+import CompanyPage from './components/company/CompanyPage'
 import AdminAddCompany from './components/admin/AdminAddCompany'
+import Companies from './components/company/Companies'
 
 function App() {
 	return (
@@ -22,7 +23,7 @@ function App() {
 							</Route>
 
 							<Route path="/admin">
-								<Route path={"/"}>
+								<Route path="/">
 									<AdminLogin />
 								</Route>
 								
@@ -35,10 +36,13 @@ function App() {
 								</AuthRoute>
 							</Route>
 
-							<Route path="/company">
+							<Route path="/companies">
+								<Route path="/">
+									<Companies />
+								</Route>
 
 								<Route path="/:companyName">
-									<Company />
+									<CompanyPage />
 								</Route>
 							</Route>
 

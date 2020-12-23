@@ -7,6 +7,7 @@ const AdminAddCompany = () => {
 	const nameRef = useRef()
 	const addressRef = useRef()
 	const categoryRef = useRef()
+	const infoRef = useRef()
 	const slugRef = useRef()
 	const searchTermRef = useRef()
 	const [loading, setLoading] = useState(false)
@@ -26,6 +27,7 @@ const AdminAddCompany = () => {
 				name: nameRef.current.value,
 				address: addressRef.current.value,
 				category: categoryRef.current.value,
+				info: infoRef.current.value,
 				slug: slugRef.current.value,
 				search_term: searchTermArray,
 			})
@@ -61,11 +63,28 @@ const AdminAddCompany = () => {
 									ref={addressRef}/>
 							</div>
 							<div className="form-group">
+								<label>Välj en kategori</label>
+								<select className="form-control" ref={categoryRef}>
+									<option value="barber">Barberare</option>
+									<option value="grocerie-store">Livsmedelsbutik</option>
+									<option value="restaurant">Restaurang</option>
+									<option value="store">Butik</option>
+									<option value="salon">Salong</option>
+								</select>
+							</div>
+							{/* <div className="form-group">
 								<label>Kategori</label>
 								<input
 									type="text"
 									className="form-control"
 									ref={categoryRef}/>
+							</div> */}
+							<div className="form-group">
+								<label>Information</label>
+								<textarea 
+									className="form-control" 
+									rows="3"
+									ref={infoRef}></textarea>
 							</div>
 							<div className="form-group">
 								<label>Slug</label>

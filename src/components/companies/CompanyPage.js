@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import useCompany from '../../hooks/useCompany'
 
-const Company = () => {
+const CompanyPage = () => {
 	const { companyName } = useParams()
 	const { company, loading } = useCompany(companyName)
 	const navigate = useNavigate()
@@ -23,4 +23,4 @@ const Company = () => {
 	)
 }
 
-export default Company
+export default CompanyPage
