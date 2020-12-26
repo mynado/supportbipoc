@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useDropzone } from 'react-dropzone'
 import useUploadImage from '../../hooks/useUploadImage'
 
 const UploadImage = (props) => {
 	const [uploadImage, setUploadImage] = useState(null)
 	const [message, setMessage] = useState(null)
-	const { uploadProgress, error, isSuccess } = useUploadImage(uploadImage, props.company)
+	const { error, isSuccess } = useUploadImage(uploadImage, props.company)
 	
 	useEffect(() => {
 		if (error) {
@@ -22,6 +22,7 @@ const UploadImage = (props) => {
 		} else {
 			setMessage(null)
 		}
+	
 	}, [error, isSuccess])
 
 	const onDrop = useCallback(acceptedFiles => {
@@ -59,6 +60,13 @@ const UploadImage = (props) => {
 							}
 						</ul>
 						
+					</div>
+				)
+			}
+			{
+				message && (
+					<div className="alert alert-warning">
+						{message.text}
 					</div>
 				)
 			}

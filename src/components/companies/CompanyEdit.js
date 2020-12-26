@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { db } from '../../firebase'
 import useCompany from '../../hooks/useCompany'
+import useImages from '../../hooks/useImages'
 import UploadImage from '../images/UploadImage'
 
 const CompanyEdit = () => {
@@ -12,7 +13,8 @@ const CompanyEdit = () => {
 	const slugRef = useRef()
 	const searchTermRef = useRef()
 	const { companyName } = useParams()
-	const { company, loading, images } = useCompany(companyName)
+	const { company, loading } = useCompany(companyName)
+	const { images, imgLoading } = useImages(company)
 	const [formLoading, setFormLoading] = useState(false)
 	const [error, setError] = useState(false)
 	const navigate = useNavigate()

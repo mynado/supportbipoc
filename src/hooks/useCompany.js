@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { db } from '../firebase'
 
 const useCompany = (companyName) => {
-	const [images, setImages] = useState([])
 	const [company, setCompany] = useState()
 	const [loading, setLoading] = useState(true)
 
@@ -27,28 +26,7 @@ const useCompany = (companyName) => {
 		return unsubscribe
 	}, [companyName])
 
-	useEffect(() => {
-		const unsubscribe = db.collection('images')
-			.where('company', '==', companyName)
-			.onSnapshot(snapshot => {
-				setLoading(true)
-				const imgs = [];
-
-				snapshot.forEach(doc => {
-					imgs.push({
-						id: doc.id,
-						...doc.data(),
-					});
-				});
-
-				setImages(imgs);
-				setLoading(false)
-			});
-
-		return unsubscribe;
-	}, [companyName]);
-
-	return { company, images, loading }
+	return { company, loading }
 }
 
 export default useCompany

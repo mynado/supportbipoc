@@ -2,11 +2,13 @@ import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
+import useImages from '../../hooks/useImages'
 
 const CompanyPage = () => {
 	const { currentUser } = useAuth()
 	const { companyName } = useParams()
-	const { company, loading, images } = useCompany(companyName)
+	const { company, loading } = useCompany(companyName)
+	const { images, imgLoading } = useImages(company)
 	const navigate = useNavigate()
 
 	if (loading) {

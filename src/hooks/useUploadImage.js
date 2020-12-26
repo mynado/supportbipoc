@@ -37,8 +37,6 @@ const useUploadImage = (image, company) => {
 		uploadTask.then(async snapshot => {
 			// retrieve URL to uploaded image
 			const url = await snapshot.ref.getDownloadURL()
-
-			console.log('image', image)
 			// add uploaded image to database
 			const img = {
 				name: image.name,
@@ -49,13 +47,12 @@ const useUploadImage = (image, company) => {
 				url,
 			}
 
-			// get docRef to company (if set)
-			if (company.slug) {
-				img.company = company.slug
+			if (company.id) {
+				img.company = db.collection('companies').doc(company.id)
 			}
 
 			// add image to collection
-			const unsubscribe = await db.collection('images').add(img)
+			await db.collection('images').add(img)
 			
 			// let user know we're done
 			setIsSuccess(true)
@@ -64,7 +61,6 @@ const useUploadImage = (image, company) => {
 			// image has been added to db, refresh list of images
 			setUploadedImage(img)
 			setIsSuccess(true)
-			return ({url, unsubscribe})
 		}).catch(error => {
 			setError({
 				type: 'warning',
