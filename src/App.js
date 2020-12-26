@@ -8,7 +8,7 @@ import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
 import SearchPage from './components/search/SearchPage'
 import CompanyPage from './components/companies/CompanyPage'
-import AdminAddCompany from './components/admin/AdminAddCompany'
+import CompanyAdd from './components/companies/CompanyAdd'
 import Companies from './components/companies/Companies'
 import CompanyEdit from './components/companies/CompanyEdit'
 
@@ -31,16 +31,16 @@ function App() {
 								<AuthRoute path="/home">
 									<AdminHome />
 								</AuthRoute>
-
-								<AuthRoute path="/add-company">
-									<AdminAddCompany />
-								</AuthRoute>
 							</Route>
 
 							<Route path="/companies">
 								<Route path="/">
 									<Companies />
 								</Route>
+
+								<AuthRoute path="/add">
+									<CompanyAdd />
+								</AuthRoute>
 
 								<Route path="/:companyName">
 									<Route path="/">

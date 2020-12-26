@@ -15,7 +15,7 @@ const Companies = () => {
 			{
 				currentUser && (
 					<div className="mt-3">
-						<Link to="/admin/add-company" className="btn btn-primary">Lägg till ett företag</Link>
+						<Link to="/companies/add" className="btn btn-primary">Lägg till ett företag</Link>
 					</div>
 				)
 			}
