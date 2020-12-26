@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { db } from '../../firebase'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
+import useDeleteImage from '../../hooks/useDeleteImage'
 import UploadImage from '../images/UploadImage'
 
 const CompanyEdit = () => {
@@ -15,12 +16,20 @@ const CompanyEdit = () => {
 	const { companyName } = useParams()
 	const { company, loading } = useCompany(companyName)
 	const { images, imgLoading } = useImages(company)
+	const [deleteImage, setDeleteImage] = useState(null)
 	const [formLoading, setFormLoading] = useState(false)
 	const [error, setError] = useState(false)
+	useDeleteImage(deleteImage)
 	const navigate = useNavigate()
 
 	if (loading) {
 		return (<p>Loading...</p>)
+	}
+
+	const handleDeleteImage = (image) => {
+		if (window.confirm(`Are you really sure you want to delete the image\n"${image.name}"?`)) {
+			setDeleteImage(image);
+		}
 	}
 
 	const handleSubmit = async (e) => {
@@ -111,7 +120,11 @@ const CompanyEdit = () => {
 								{
 									images
 									? (images.map(image => (
-										<img src={image.url} className="img-thumbnail" alt="" key={image.id}/>
+										<div key={image.id}>
+											<img src={image.url} className="img-thumbnail" alt=""/>
+											<button className="btn btn-danger" onClick={() => {handleDeleteImage(image)}}>X</button>
+										</div>
+										
 									)))
 									: ''
 								}
