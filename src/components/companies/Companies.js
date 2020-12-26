@@ -7,8 +7,6 @@ const Companies = () => {
 	const { currentUser } = useAuth()
 	const { companies, loading } = useCompanies()
 
-	console.log(companies)
-
 	return (
 		<>
 			<h2 className="mb-3">All Companies</h2>
