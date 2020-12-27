@@ -1,4 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+
+body {
+  color: #3b3430;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-family: "Lora", serif;
+}
 
 // Shared components
 .search-bar {
@@ -14,11 +24,26 @@
   }
 }
 
+a {
+  color: #3b3430;
+
+  &:hover {
+    color: #3b2a1e;
+    cursor: pointer;
+  }
+}
+
+nav {
+  background-color: #bb8662;
+  color: #3b3430;
+}
+
 #navbarNav {
   position: fixed;
   width: 80%;
   display: block;
-  background: wheat;
+  background: #c6b0a2;
+  color: #3b3430;
   border-top-left-radius: 30px;
   text-align: right;
   padding: 1rem;
@@ -37,9 +62,14 @@
 }
 
 // Home component
+.home-wrapper {
+  background-color: #efe5d8;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 94vh;
+  margin: 0 1rem;
 }
