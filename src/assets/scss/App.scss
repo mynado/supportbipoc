@@ -62,14 +62,34 @@ nav {
 }
 
 // Home component
-.home-wrapper {
-  background-color: #efe5d8;
+.home {
+  &-wrapper {
+    background-color: #efe5d8;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 94vh;
+    margin: 0 1rem;
+  }
 }
 
-.home-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 94vh;
-  margin: 0 1rem;
+// Categories
+.categories {
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-list-item {
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  &-icon {
+    width: 2rem;
+  }
 }
