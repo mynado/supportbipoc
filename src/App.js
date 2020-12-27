@@ -11,53 +11,58 @@ import CompanyPage from './components/companies/CompanyPage'
 import CompanyAdd from './components/companies/CompanyAdd'
 import Companies from './components/companies/Companies'
 import CompanyEdit from './components/companies/CompanyEdit'
+import CategoryPage from './components/categories/CategoryPage'
 
 function App() {
 	return (
 			<AuthContextProvider>
 				<div className="App">
 					<Navigation />
-					<div className="container">
-						<Routes>
+					<Routes>
+						<Route path="/">
+							<Home />
+						</Route>
+
+						<Route path="/admin">
 							<Route path="/">
-								<Home />
+								<AdminLogin />
+							</Route>
+							
+							<AuthRoute path="/home">
+								<AdminHome />
+							</AuthRoute>
+						</Route>
+
+						<Route path="/companies">
+							<Route path="/">
+								<Companies />
 							</Route>
 
-							<Route path="/admin">
+							<AuthRoute path="/add">
+								<CompanyAdd />
+							</AuthRoute>
+
+							<Route path="/:companyName">
 								<Route path="/">
-									<AdminLogin />
+									<CompanyPage />
 								</Route>
-								
-								<AuthRoute path="/home">
-									<AdminHome />
+
+								<AuthRoute path="/edit">
+									<CompanyEdit />
 								</AuthRoute>
 							</Route>
+						</Route>
 
-							<Route path="/companies">
-								<Route path="/">
-									<Companies />
-								</Route>
+						<Route path="/search">
+							<SearchPage />
+						</Route>
 
-								<AuthRoute path="/add">
-									<CompanyAdd />
-								</AuthRoute>
-
-								<Route path="/:companyName">
-									<Route path="/">
-										<CompanyPage />
-									</Route>
-
-									<AuthRoute path="/edit">
-										<CompanyEdit />
-									</AuthRoute>
-								</Route>
+						<Route path="/categories">
+							<Route path="/:categoryName">
+								<CategoryPage />
 							</Route>
-
-							<Route path="/search">
-								<SearchPage />
-							</Route>
-						</Routes>
-					</div>
+						</Route>
+					</Routes>
 				</div>
 			</AuthContextProvider>
 	);
