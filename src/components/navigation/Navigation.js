@@ -11,13 +11,14 @@ const Navigation = () => {
 
 	const handleClickMenu = () => {
 		setOpen(!open)
+		console.log(open)
 	}
 
 	const handleClickOutside = (e) => {
 		if (node.current.contains(e.target)) {
 			return
 		}
-		setOpen(false)
+		setOpen(!open)
 	}
 
 	const handleLogout = () => {
@@ -35,7 +36,7 @@ const Navigation = () => {
 		return () => {
 		  document.removeEventListener("mousedown", handleClickOutside);
 		};
-	  }, [open]);
+	  }, []);
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg">
