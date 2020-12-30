@@ -1,6 +1,7 @@
 import React from 'react'
 import Categories from './categories/Categories'
 import SearchBar from './search/SearchBar'
+import './Home.scss'
 
 const Home = () => {
 

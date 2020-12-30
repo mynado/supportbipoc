@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { SearchContext } from '../../contexts/SearchContext'
+import './SearchBar.scss'
 
 const SearchBar = () => {
 	const appContext = useContext(SearchContext)

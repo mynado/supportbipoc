@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Categories.scss'
 import restaurantIcon from '../../assets/icons/categories/noodles.svg'
 import barberIcon from '../../assets/icons/categories/barber.svg'
 import groceriesIcon from '../../assets/icons/categories/grocery-cart.svg'

@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import './assets/scss/App.scss'
 import AuthContextProvider from './contexts/AuthContext'
 import Home from './components/Home'
-import Navigation from './components/Navigation'
+import Navigation from './components/navigation/Navigation'
 import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
@@ -15,56 +15,56 @@ import CategoryPage from './components/categories/CategoryPage'
 
 function App() {
 	return (
-			<AuthContextProvider>
-				<div className="App">
-					<Navigation />
-					<Routes>
+		<AuthContextProvider>
+			<div className="App">
+				<Navigation />
+				<Routes>
+					<Route path="/">
+						<Home />
+					</Route>
+
+					<Route path="/admin">
 						<Route path="/">
-							<Home />
+							<AdminLogin />
+						</Route>
+						
+						<AuthRoute path="/home">
+							<AdminHome />
+						</AuthRoute>
+					</Route>
+
+					<Route path="/companies">
+						<Route path="/">
+							<Companies />
 						</Route>
 
-						<Route path="/admin">
+						<AuthRoute path="/add">
+							<CompanyAdd />
+						</AuthRoute>
+
+						<Route path="/:companyName">
 							<Route path="/">
-								<AdminLogin />
+								<CompanyPage />
 							</Route>
-							
-							<AuthRoute path="/home">
-								<AdminHome />
+
+							<AuthRoute path="/edit">
+								<CompanyEdit />
 							</AuthRoute>
 						</Route>
+					</Route>
 
-						<Route path="/companies">
-							<Route path="/">
-								<Companies />
-							</Route>
+					<Route path="/search">
+						<SearchPage />
+					</Route>
 
-							<AuthRoute path="/add">
-								<CompanyAdd />
-							</AuthRoute>
-
-							<Route path="/:companyName">
-								<Route path="/">
-									<CompanyPage />
-								</Route>
-
-								<AuthRoute path="/edit">
-									<CompanyEdit />
-								</AuthRoute>
-							</Route>
+					<Route path="/categories">
+						<Route path="/:categoryName">
+							<CategoryPage />
 						</Route>
-
-						<Route path="/search">
-							<SearchPage />
-						</Route>
-
-						<Route path="/categories">
-							<Route path="/:categoryName">
-								<CategoryPage />
-							</Route>
-						</Route>
-					</Routes>
-				</div>
-			</AuthContextProvider>
+					</Route>
+				</Routes>
+			</div>
+		</AuthContextProvider>
 	);
 }
 
