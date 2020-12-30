@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { SearchContext } from '../../contexts/SearchContext'
+import { FiSearch } from 'react-icons/fi'
 import './SearchBar.scss'
 
 const SearchBar = () => {
@@ -21,7 +22,7 @@ const SearchBar = () => {
 						aria-describedby="search"
 						placeholder={query ? query : 'Search...'}
 						/>
-					<button className="search-bar-button" type="submit">🔍</button>
+					<button className="search-bar-button" type="submit"><FiSearch /></button>
 				</div>
 			</form>
 		</>

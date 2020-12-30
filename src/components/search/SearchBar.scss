@@ -3,6 +3,12 @@
   align-items: center;
   position: relative;
 
+  &-input {
+    border-radius: 30px;
+    border: none;
+    background: rgb(245, 245, 245);
+  }
+
   &-button {
     background: none;
     border: none;
