@@ -6,6 +6,7 @@ import './Navigation.scss'
 
 const Navigation = () => {
 	const node = useRef();
+	const button = useRef();
 	const { currentUser, logout } = useAuth()
 	const [open, setOpen] = useState(false)
 
@@ -14,7 +15,7 @@ const Navigation = () => {
 	}
 
 	const handleClickOutside = useCallback((e) => {
-		if (node.current.contains(e.target)) {
+		if (node.current.contains(e.target) || button.current.contains(e.target)) {
 			return
 		}
 		setOpen(!open)
@@ -44,7 +45,7 @@ const Navigation = () => {
 						<img src={logo} className="navbar-logo" alt="logo" /> 
 					</NavLink>
 
-					<button className={`navbar-toggler ${open ? 'open' : ''}` } onClick={handleClickMenu} id="nav-icon">
+					<button className={`navbar-toggler ${open ? 'open' : ''}` } onClick={handleClickMenu} id="nav-icon" ref={button}>
 						<span></span>
 						<span></span>
 						<span></span>
