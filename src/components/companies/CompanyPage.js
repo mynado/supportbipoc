@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
+import ImageSlider from '../images/ImageSlider'
 
 const CompanyPage = () => {
 	const { currentUser } = useAuth()
@@ -17,15 +18,7 @@ const CompanyPage = () => {
 
 	return (
 		<div>
-			<div>
-				{
-					images
-					? (images.map(image => (
-						<img src={image.url} className="img-thumbnail" alt="" key={image.id}/>
-					)))
-					: ''
-				}
-			</div>
+			<ImageSlider images={images}/>
 			<h1>{company.name}</h1>
 			<p>{company.address}</p>
 
