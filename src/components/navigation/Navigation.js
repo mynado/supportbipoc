@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import logo from '../../assets/icons/logo/logo-outline-web.png'
@@ -11,15 +11,14 @@ const Navigation = () => {
 
 	const handleClickMenu = () => {
 		setOpen(!open)
-		console.log(open)
 	}
 
-	const handleClickOutside = (e) => {
+	const handleClickOutside = useCallback((e) => {
 		if (node.current.contains(e.target)) {
 			return
 		}
 		setOpen(!open)
-	}
+	}, [open])
 
 	const handleLogout = () => {
 		logout()
@@ -36,7 +35,7 @@ const Navigation = () => {
 		return () => {
 		  document.removeEventListener("mousedown", handleClickOutside);
 		};
-	  }, []);
+	  }, [open, handleClickOutside]);
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg">
