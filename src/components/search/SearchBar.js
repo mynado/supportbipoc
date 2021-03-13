@@ -13,8 +13,8 @@ const SearchBar = () => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-			<div className="search-bar form-group d-flex">
-				<input 
+				<div className="search-bar form-group d-flex">
+					<input 
 						onChange={handleChange}
 						type="text"
 						className="search-bar-input form-control"
