@@ -8,15 +8,13 @@ const SearchResult = () => {
 
 	return (
 		<>
-			<div className="">
-				{
-					companies
-					? (companies.map(company => (
-						<Company company={company} key={company.id}/>
-					)))
-					: 'Finns inga sökresultat'
-				}
-			</div>
+			{
+				companies
+				? (companies.map(company => (
+					<Company company={company} key={company.id}/>
+				)))
+				: 'Finns inga sökresultat'
+			}
 		</>
 	)
 }

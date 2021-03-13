@@ -12,7 +12,7 @@ const CategoryPage = () => {
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<h1>{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h1>
 			<div className="">
 				{
