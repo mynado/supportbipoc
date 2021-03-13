@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import './assets/scss/App.scss'
 import AuthContextProvider from './contexts/AuthContext'
 import Home from './components/Home'
@@ -14,9 +14,10 @@ import CompanyEdit from './components/companies/CompanyEdit'
 import CategoryPage from './components/categories/CategoryPage'
 
 function App() {
+	const homePage = useLocation().pathname === '/'
 	return (
 		<AuthContextProvider>
-			<div className="App">
+			<div className={`App ${homePage ? 'change-color' : ''}` }>
 				<Navigation />
 				<Routes>
 					<Route path="/">

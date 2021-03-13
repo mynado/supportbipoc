@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import logo from '../../assets/icons/logo/logo-outline-web.png'
 import './Navigation.scss'
+import SearchBar from '../search/SearchBar'
 
 const Navigation = () => {
 	const node = useRef();
@@ -39,6 +40,7 @@ const Navigation = () => {
 	  }, [open, handleClickOutside]);
 
 	return (
+		<>
 		<nav className="navbar navbar-expand-lg fixed-top">
 			<div className="container">
 				<NavLink to="/" className="navbar-brand">
@@ -97,6 +99,9 @@ const Navigation = () => {
 				</div>		
 			</div>
 		</nav>
+		<div className="whitespace"></div>
+		<SearchBar />
+		</>
 	)
 }
 

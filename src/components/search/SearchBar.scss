@@ -2,7 +2,12 @@
 .search-bar {
   align-items: center;
   position: relative;
-  margin: 1rem auto;
+  margin: 1rem;
+
+  &-container {
+    padding: 1rem 0 0 0;
+    width: 100%;
+  }
 
   &-input {
     border-radius: 30px;
@@ -15,5 +20,12 @@
     border: none;
     position: absolute;
     right: 0.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .search-bar {
+    margin: 1rem auto;
+    width: 50%;
   }
 }
