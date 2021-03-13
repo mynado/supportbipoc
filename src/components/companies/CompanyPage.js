@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
 import ImageSlider from '../images/ImageSlider'
+import './CompanyPage.scss'
 
 const CompanyPage = () => {
 	const { currentUser } = useAuth()
@@ -17,13 +18,19 @@ const CompanyPage = () => {
 	}
 
 	return (
-		<div>
-			<ImageSlider images={images}/>
-			<h1>{company.name}</h1>
-			<p>{company.address}</p>
+		<>
+			<div className="company-content-container">
+				<div className="company-image-container">
+					<ImageSlider images={images}/>
+				</div>
+				<div className="company-info-container">
+					<h1>{company.name}</h1>
+					<p>{company.address}</p>
+				</div>
+			</div>
 
-			<div className="d-flex justify-content-between">
-				<button onClick={() => navigate(-1)} className="btn btn-primary">&laquo; Back</button>
+			<div className="button-container d-flex justify-content-between">
+				<button onClick={() => navigate(-1)} className="btn button-custom">&laquo; Back</button>
 				{
 				currentUser && (
 					<div className="mt-3">
@@ -32,7 +39,7 @@ const CompanyPage = () => {
 				)
 			}
 			</div>
-		</div>
+		</>
 	)
 }
 
