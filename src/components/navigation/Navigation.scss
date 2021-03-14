@@ -2,14 +2,13 @@
 .navbar {
   background-color: #bb8662;
   color: #3b3430;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
 
   &-logo {
     width: 220px;
   }
-}
-
-.fixed-top {
-  z-index: 3;
 }
 
 .navbar-wrapper {

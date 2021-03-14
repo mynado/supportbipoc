@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import useClickOutside from '../../hooks/useClickOutside'
 import logo from '../../assets/icons/logo/logo-outline-web.png'
 import './Navigation.scss'
 import SearchBar from '../search/SearchBar'
@@ -22,14 +23,13 @@ const Navigation = () => {
 
 	const handleClickMenu = () => {
 		setOpen(!open)
-	}
+	}	
 
-	const handleClickOutside = useCallback((e) => {
-		if (node.current.contains(e.target) || button.current.contains(e.target)) {
-			return
+	useClickOutside(node, () => {
+		if (open) {
+			setOpen(!open)
 		}
-		setOpen(!open)
-	}, [open])
+	});
 
 	const handleLogout = () => {
 		logout()
@@ -39,21 +39,11 @@ const Navigation = () => {
 	useEffect(() => {
 		window.addEventListener('scroll', listenScrollEvent)
 
-		if (open) {
-		  document.addEventListener("mousedown", handleClickOutside);
-		} else {
-		  document.removeEventListener("mousedown", handleClickOutside);
-		}
-	
-		return () => {
-		  document.removeEventListener("mousedown", handleClickOutside);
-		};
-
-	  }, [open, handleClickOutside]);
+	  }, [open]);
 
 	return (
 		<>
-		<nav className="navbar navbar-expand-lg fixed-top">
+		<nav className="navbar navbar-expand-lg">
 			<div className="container">
 				<NavLink to="/" className="navbar-brand">
 					<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
