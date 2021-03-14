@@ -3,12 +3,15 @@
   align-items: center;
   position: relative;
   margin: 1rem;
+  width: 280px;
 
   &-container {
-    // padding: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     position: sticky;
-    top: 42px;
+    top: 20px;
     z-index: 5;
   }
 
@@ -16,6 +19,7 @@
     border-radius: 30px;
     border: none;
     background: rgb(245, 245, 245);
+    padding-left: 2.5rem;
   }
 
   &-button {
@@ -24,11 +28,16 @@
     position: absolute;
     right: 0.75rem;
   }
+
+  .filter-button {
+    position: absolute;
+    left: 1rem;
+  }
 }
 
 @media (min-width: 900px) {
   .search-bar {
     margin: 1rem auto;
-    width: 50%;
+    width: 400px;
   }
 }

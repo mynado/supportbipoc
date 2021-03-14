@@ -1,0 +1,34 @@
+.filter {
+    &-container {
+        position: absolute;
+        bottom: 0;
+        height: 80vh;
+        width: 100%;
+        z-index: 10;
+        background-color: #c6b0a2;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        overflow-y: scroll;
+    
+    }
+
+    &-content {
+        position: absolute;
+        top: 2rem;
+        padding: 1rem;
+        width: 100%;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    }
+
+    &-city-container ul,
+    &-budget-container ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+}
