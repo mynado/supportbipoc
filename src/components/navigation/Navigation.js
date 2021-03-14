@@ -66,7 +66,7 @@ const Navigation = () => {
 				</button>
 				<div className={`navbar-menu fixed-top ${open ? 'menu-open' : 'menu-collapse'}`} ref={node}>
 					<div className="navbar-menu-container">
-						<ul className="navbar-menu-list">
+						<ul className="navbar-menu-list" style={scroll ? {fontSize: '1rem'} : {fontSize: '1.25rem'}}>
 							{
 								currentUser ? (
 									<div className="navbar-menu-list-container navbar-admin">
