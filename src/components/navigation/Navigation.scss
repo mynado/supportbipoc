@@ -57,7 +57,7 @@
   height: 40px;
   position: relative;
   transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   cursor: pointer;
   z-index: 2;
 
@@ -74,7 +74,7 @@
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out;
 
     &:nth-child(1) {
       top: 0;
@@ -114,7 +114,7 @@
 }
 
 .whitespace {
-  height: 4rem;
+  height: 4.5rem;
 }
 
 @media (min-width: 900px) {
