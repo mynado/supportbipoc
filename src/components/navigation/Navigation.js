@@ -10,6 +10,15 @@ const Navigation = () => {
 	const button = useRef();
 	const { currentUser, logout } = useAuth()
 	const [open, setOpen] = useState(false)
+	const [scroll, setScroll] = useState(false)
+
+	const listenScrollEvent = e => {
+		if (window.scrollY > 30) {
+			setScroll(true)
+		} else {
+			setScroll(false)
+		}
+	}
 
 	const handleClickMenu = () => {
 		setOpen(!open)
@@ -28,6 +37,8 @@ const Navigation = () => {
 	}
 
 	useEffect(() => {
+		window.addEventListener('scroll', listenScrollEvent)
+
 		if (open) {
 		  document.addEventListener("mousedown", handleClickOutside);
 		} else {
@@ -37,6 +48,7 @@ const Navigation = () => {
 		return () => {
 		  document.removeEventListener("mousedown", handleClickOutside);
 		};
+
 	  }, [open, handleClickOutside]);
 
 	return (
@@ -44,13 +56,13 @@ const Navigation = () => {
 		<nav className="navbar navbar-expand-lg fixed-top">
 			<div className="container">
 				<NavLink to="/" className="navbar-brand">
-					<img src={logo} className="navbar-logo" alt="logo" /> 
+					<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
 				</NavLink>
-				<button className={`navbar-toggler ${open ? 'open' : ''}` } onClick={handleClickMenu} id="nav-icon" ref={button}>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
+				<button className={`navbar-toggler ${open ? 'open' : ''}` } style={scroll ? {width: '30px', height: '24px'} : {width: '48px', height: '40px'}} onClick={handleClickMenu} id="nav-icon" ref={button}>
+					<span style={scroll ? {top: '0', height: '5px'} : {top: '0'}}></span>
+					<span style={scroll ? {top: '8px', height: '5px'} : {top: '15px'}}></span>
+					<span style={scroll ? {top: '8px', height: '5px'} : {top: '15px'}}></span>
+					<span style={scroll ? {top: '16px', height: '5px'} : {top: '30px'}}></span>
 				</button>
 				<div className={`navbar-menu fixed-top ${open ? 'menu-open' : 'menu-collapse'}`} ref={node}>
 					<div className="navbar-menu-container">
@@ -100,7 +112,7 @@ const Navigation = () => {
 			</div>
 		</nav>
 		<div className="whitespace"></div>
-		<SearchBar />
+		{ !open &&(<SearchBar />) }
 		</>
 	)
 }

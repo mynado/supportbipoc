@@ -8,6 +8,10 @@
   }
 }
 
+.fixed-top {
+  z-index: 3;
+}
+
 .navbar-wrapper {
   width: 100%;
 }
@@ -111,7 +115,7 @@
 }
 
 .whitespace {
-  height: 2.7rem;
+  height: 4rem;
 }
 
 @media (min-width: 900px) {
