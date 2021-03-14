@@ -2,6 +2,7 @@
     &-container {
         position: fixed;
         bottom: 0;
+        left: 0;
         height: 80vh;
         width: 100%;
         z-index: 10;
@@ -30,5 +31,20 @@
         justify-content: flex-start;
         align-items: center;
         gap: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .filter {
+        &-container {
+            position: relative;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            width: 400px;
+            margin: 0 auto;
+            height: 50vh;
+        }
     }
 }

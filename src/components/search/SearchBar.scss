@@ -15,6 +15,10 @@
     z-index: 5;
   }
 
+  &-form {
+    position: relative;
+  }
+
   &-input {
     border-radius: 30px;
     border: none;
@@ -37,7 +41,13 @@
 
 @media (min-width: 900px) {
   .search-bar {
-    margin: 1rem auto;
+    margin: 1rem auto 0 auto;
     width: 400px;
+  }
+
+  .search-filter {
+    position: absolute;
+    top: 2rem;
+    z-index: -1;
   }
 }

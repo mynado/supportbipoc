@@ -37,7 +37,7 @@ const SearchBar = () => {
 	return (
 		<>
 			<div className="search-bar-container">
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} className="search-bar-form">
 					<div className="search-bar form-group d-flex">
 						<div className="filter-button" onClick={handleOpenFilter}><IoFilterSharp /></div>
 						<input 
@@ -50,9 +50,11 @@ const SearchBar = () => {
 							/>
 						<button className="search-bar-button" type="submit"><FiSearch /></button>
 					</div>
+					<div className="search-filter">
+						{ openFilter &&(<div ref={node}><SearchFilter /></div>) }
+					</div>
 				</form>
 			</div>
-			{ openFilter &&(<div ref={node}><SearchFilter /></div>) }
 		</>
 	)
 }
