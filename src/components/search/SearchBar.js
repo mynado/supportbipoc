@@ -7,7 +7,7 @@ import { IoFilterSharp } from 'react-icons/io5'
 import './SearchBar.scss'
 import SearchFilter from './SearchFilter'
 
-const SearchBar = () => {
+const SearchBar = ({ open }) => {
 	const node = useRef()
 	const appContext = useContext(SearchContext)
 	const { handleSubmit, handleChange } = appContext
@@ -36,7 +36,7 @@ const SearchBar = () => {
 
 	return (
 		<>
-			<div className="search-bar-container">
+			<div className="search-bar-container" style={ open ? {visibility: 'hidden'} : {}}>
 				<form onSubmit={handleSubmit} className="search-bar-form">
 					<div className="search-bar form-group d-flex">
 						<div className="filter-button" onClick={handleOpenFilter}><IoFilterSharp /></div>
