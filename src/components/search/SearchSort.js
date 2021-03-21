@@ -11,7 +11,7 @@ const SearchSort = () => {
 				<select className="custom-select" name="" id="" onChange={e => sortResults(e.target.value)}>
 					<option value="" disabled>Sortera</option>
 					<option value="name">A-Ö</option>
-					<option value="categories">Kategori</option>
+					<option value="category">Kategori</option>
 				</select>
 			</div>
 		</>

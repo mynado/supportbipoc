@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchFilter from './SearchSort'
+import SearchSort from './SearchSort'
 import SearchResults from './SearchResults'
 
 const SearchPage = () => {
@@ -7,7 +7,7 @@ const SearchPage = () => {
 		<div className="container">
 			<div className="d-flex justify-content-between">
 				<h2>Sökresultat</h2>
-				<SearchFilter />
+				<SearchSort />
 			</div>
 			<SearchResults />
 		</div>
