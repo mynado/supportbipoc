@@ -44,9 +44,15 @@ const Navigation = () => {
 		<>
 			<nav className="navbar navbar-expand-lg">
 				<div className="container">
-					<NavLink to="/" className="navbar-brand">
-						<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
-					</NavLink>
+					{ 
+						currentUser 
+							? (<NavLink to="/admin/home" className="navbar-brand">
+									<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
+								</NavLink>)
+							: (<NavLink to="/" className="navbar-brand">
+									<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
+								</NavLink>)
+					}
 					<button className={`navbar-toggler ${open ? 'open' : ''}` } style={scroll ? {width: '30px', height: '24px'} : {}} onClick={handleClickMenu} id="nav-icon" ref={button}>
 						<span style={scroll ? {top: '0', height: '5px'} : {}}></span>
 						<span style={scroll ? {top: '8px', height: '5px'} : {}}></span>
@@ -66,7 +72,7 @@ const Navigation = () => {
 											</li>
 											<li className="nav-item">
 												<NavLink to="/companies" onClick={handleClickMenu}>
-													Visa alla företag
+													Företag
 												</NavLink>
 											</li>
 											<li className="nav-item">
