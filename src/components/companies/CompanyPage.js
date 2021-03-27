@@ -19,7 +19,7 @@ const CompanyPage = () => {
 
 	return (
 		<>
-			<div className="company-content-container">
+			<div className="company-content-container container">
 				<div className="company-image-container">
 					<ImageSlider images={images}/>
 				</div>

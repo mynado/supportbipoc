@@ -7,7 +7,7 @@ const SearchResult = () => {
 	const { companies } = appContext
 
 	return (
-		<>
+		<div className="row justify-content-start">
 			{
 				companies
 				? (companies.map(company => (
@@ -15,7 +15,7 @@ const SearchResult = () => {
 				)))
 				: 'Finns inga sökresultat'
 			}
-		</>
+		</div>
 	)
 }
 

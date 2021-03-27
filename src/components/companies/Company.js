@@ -19,7 +19,7 @@ const Company = (props) => {
 		}
 	}
 	return (
-		<>
+		<div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
 			<div className="card">
 				<img className="card-img-top" src={props.company.thumbnail_url ? props.company.thumbnail_url : "https://dummyimage.com/300x200/ccc/fff&text=No+Image"} alt="" />
 				<div className="card-body">
@@ -37,7 +37,7 @@ const Company = (props) => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
