@@ -84,9 +84,6 @@ const Navigation = () => {
 												<NavLink to="/" onClick={handleClickMenu}>Home <span className="sr-only">(current)</span></NavLink>
 											</li>
 											<li className="nav-item">
-												<NavLink to="/categories" onClick={handleClickMenu}>Kategorier <span className="sr-only">(current)</span></NavLink>
-											</li>
-											<li className="nav-item">
 												<NavLink to="/about" onClick={handleClickMenu}>Om oss <span className="sr-only">(current)</span></NavLink>
 											</li>
 											<li className="nav-item">

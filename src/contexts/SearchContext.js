@@ -8,6 +8,7 @@ const SearchProvider = (props) => {
 	const [companies, setCompanies] = useState(null)
 	const [loading, setLoading] = useState(true)
 	const [searchQuery, setSearchQuery] = useState(null)
+	// const [filter, setFilter] = useState(null)
 	const navigate = useNavigate()
 	const search = useLocation().search;
 	const query = new URLSearchParams(search).get('q');
@@ -47,14 +48,29 @@ const SearchProvider = (props) => {
 	}, [getCompanies, query, setUrl]);
 	
 	const handleChange = (e) => {
-		setSearchQuery(e.target.value)
+		setSearchQuery(e.target.value.toLowerCase())
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		getCompanies(searchQuery)
 		setUrl(searchQuery)
+		// if (filter) {
+		// 	console.log('with filter and search query', filter, searchQuery)
+		// 	searchByCategory(filter)
+		// 	setUrl(searchQuery)
+		// } else {
+		// 	console.log('without filter', searchQuery)
+		// 	getCompanies(searchQuery)
+		// 	setUrl(searchQuery)
+		// }
 	}
+
+	// const addFilter = (category) => {
+	// 	if (category) {
+	// 		setFilter(category)
+	// 	}
+	// }
 
 	useEffect(() => {
 		if (query) {
@@ -74,6 +90,7 @@ const SearchProvider = (props) => {
 		handleChange,
 		handleSubmit,
 		sortResults,
+		// addFilter,
 	}
 	
 	return (

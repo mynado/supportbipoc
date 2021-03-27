@@ -6,8 +6,10 @@
 
   &-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(10px);
     width: 100%;
     position: sticky;
     top: 42px;
@@ -22,7 +24,7 @@
     border-radius: 30px;
     border: none;
     background: rgb(245, 245, 245);
-    padding-left: 2.5rem;
+    padding-left: 1rem;
   }
 
   &-button {

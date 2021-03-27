@@ -1,5 +1,10 @@
 // Categories
 .categories {
+  &-container {
+    width: 100%;
+    padding-right: 0;
+  }
+
   &-list {
     list-style-type: none;
     padding: 0;
@@ -9,9 +14,49 @@
   &-list-item {
     padding: 0;
     margin: 0 0 1rem 0;
+
+    img {
+      margin-right: 0.5rem;
+    }
+    
+    a {
+      display: flex;
+    }
   }
 
   &-icon {
     width: 2rem;
+  }
+}
+
+.overflow-style {
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    border-left: 1px solid transparent; 
+  }
+
+  li {
+    flex: 0;
+    margin-right: 1rem;
+  }
+
+  img {
+    width: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .categories {
+    &-container {
+      padding-right: 15px;
+    }
+  }
+
+  .overflow-style {
+    margin: 1rem auto;
   }
 }

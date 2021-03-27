@@ -3,21 +3,23 @@ import { useLocation } from 'react-router-dom'
 import { SearchContext } from '../../contexts/SearchContext'
 import useClickOutside from '../../hooks/useClickOutside'
 import { FiSearch } from 'react-icons/fi'
-import { IoFilterSharp } from 'react-icons/io5'
+// import { IoFilterSharp } from 'react-icons/io5'
 import './SearchBar.scss'
 import SearchFilter from './SearchFilter'
+import Categories from '../categories/Categories'
 
 const SearchBar = ({ open }) => {
 	const node = useRef()
 	const appContext = useContext(SearchContext)
 	const { handleSubmit, handleChange } = appContext
 	const search = useLocation().search;
+	const location = useLocation()
 	const query = new URLSearchParams(search).get('q');
 	const [openFilter, setOpenFilter] = useState(false)
 
-	const handleOpenFilter = () => {
-		setOpenFilter(!openFilter)
-	}
+	// const handleOpenFilter = () => {
+	// 	setOpenFilter(!openFilter)
+	// }
 
 	useClickOutside(node, () => {
 		if (openFilter) {
@@ -39,7 +41,7 @@ const SearchBar = ({ open }) => {
 			<div className="search-bar-container" style={ open ? {visibility: 'hidden'} : {}}>
 				<form onSubmit={handleSubmit} className="search-bar-form">
 					<div className="search-bar form-group d-flex">
-						<div className="filter-button" onClick={handleOpenFilter}><IoFilterSharp /></div>
+						{/* <div className="filter-button" onClick={handleOpenFilter}><IoFilterSharp /></div> */}
 						<input 
 							onChange={handleChange}
 							type="text"
@@ -50,10 +52,13 @@ const SearchBar = ({ open }) => {
 							/>
 						<button className="search-bar-button" type="submit"><FiSearch /></button>
 					</div>
-					<div className="search-filter">
+					{/* <div className="search-filter">
 						{ openFilter &&(<div ref={node}><SearchFilter /></div>) }
-					</div>
+					</div> */}
 				</form>
+				{
+					location.pathname !== '/' && (<Categories />)
+				}
 			</div>
 		</>
 	)
