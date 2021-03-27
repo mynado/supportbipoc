@@ -58,7 +58,7 @@ const Navigation = () => {
 							<ul className="navbar-menu-list" style={scroll ? {fontSize: '1rem'} : {fontSize: '1.25rem'}}>
 								{
 									currentUser ? (
-										<div className="navbar-menu-list-container navbar-admin">
+										<div className="navbar-menu-list-container">
 											<li className="nav-item">
 												<NavLink to="/admin/home" onClick={handleClickMenu}>
 													Adminpanel
@@ -79,7 +79,7 @@ const Navigation = () => {
 											</li>
 										</div>
 									) : (
-										<div className="navbar-menu-list-container navbar-user">
+										<div className="navbar-menu-list-container">
 											<li className="nav-item">
 												<NavLink to="/" onClick={handleClickMenu}>Home <span className="sr-only">(current)</span></NavLink>
 											</li>
@@ -98,7 +98,7 @@ const Navigation = () => {
 				</div>
 			</nav>
 			<div className="whitespace"></div>
-			<SearchBar open={open} />
+			{!currentUser &&  <SearchBar open={open} />}
 		</>
 	)
 }

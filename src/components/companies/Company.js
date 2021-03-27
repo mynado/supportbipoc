@@ -27,11 +27,11 @@ const Company = (props) => {
 					{error && (<div className="alert alert-danger">{error}</div>)}
 					<small>{props.company.category}</small>
 					<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<div className="d-flex justify-content-between">
-						<Link to={`/companies/${props.company.slug}`} className="btn btn-primary">Go somewhere</Link>
+					<div className="d-flex justify-content-end">
+						<Link to={`/companies/${props.company.slug}`} className="btn btn-primary">Mer</Link>
 						{
 							currentUser && (
-								<button onClick={handleDelete} className="btn btn-danger">Radera</button>
+								<button onClick={handleDelete} className="btn btn-danger ml-2">-</button>
 							)
 						}
 					</div>

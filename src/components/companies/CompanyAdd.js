@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../../firebase'
-import { useAuth } from '../../contexts/AuthContext'
 
 const AdminAddCompany = () => {
 	const nameRef = useRef()
@@ -12,7 +11,6 @@ const AdminAddCompany = () => {
 	const searchTermRef = useRef()
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(false)
-	const { currentUser } = useAuth()
 	const navigate = useNavigate()
 
 	const handleSubmit = async (e) => {
@@ -42,7 +40,7 @@ const AdminAddCompany = () => {
 
 	return (
 		<>
-			<div className="card">
+			<div className="card container">
 				<div className="card-body">
 					<h5 className="card-title">Add Company</h5>
 						{error && (<div className="alert alert-danger">{error}</div>)}
@@ -84,6 +82,7 @@ const AdminAddCompany = () => {
 								<input
 									type="text"
 									className="form-control"
+									placeholder="ex. company-name"
 									ref={slugRef}/>
 							</div>
 							<div className="form-group">
@@ -91,6 +90,7 @@ const AdminAddCompany = () => {
 								<input
 									type="text"
 									className="form-control"
+									placeholder="ex. mat, malmö, vietnamesisk, hälsa, värnhem"
 									ref={searchTermRef}/>
 							</div>
 							<button disabled={loading} type="submit" className="btn btn-primary">Add</button>

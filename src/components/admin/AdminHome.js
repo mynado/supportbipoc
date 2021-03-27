@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AdminHome = () => {
 	return (
-		<div>
+		<div className="container">
 			<h1>Adminpanel</h1>
 			<p>Här kan du lägga till, ta bort och redigera företag.</p>
 			<ul>

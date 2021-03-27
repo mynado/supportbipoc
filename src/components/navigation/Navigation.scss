@@ -140,6 +140,12 @@
       padding: 0;
       margin-bottom: 0;
     }
+
+    &-list-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 
   .nav-item {
@@ -149,11 +155,5 @@
   .menu-collapse {
     margin-left: inherit;
     transition: none;
-  }
-
-  .navbar-user {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
   }
 }
