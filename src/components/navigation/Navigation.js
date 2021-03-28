@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import useClickOutside from '../../hooks/useClickOutside'
 import logo from '../../assets/icons/logo/logo-outline-web.png'
@@ -9,6 +9,7 @@ import SearchBar from '../search/SearchBar'
 const Navigation = () => {
 	const node = useRef();
 	const button = useRef();
+	const location = useLocation()
 	const { currentUser, logout } = useAuth()
 	const [open, setOpen] = useState(false)
 	const [scroll, setScroll] = useState(false)
@@ -66,17 +67,17 @@ const Navigation = () => {
 									currentUser ? (
 										<div className="navbar-menu-list-container">
 											<li className="nav-item">
-												<NavLink to="/admin/home" onClick={handleClickMenu}>
+												<NavLink to="/admin/home" onClick={() => setOpen(false)}>
 													Adminpanel
 												</NavLink>
 											</li>
 											<li className="nav-item">
-												<NavLink to="/companies" onClick={handleClickMenu}>
+												<NavLink to="/companies" onClick={() => setOpen(false)}>
 													Företag
 												</NavLink>
 											</li>
 											<li className="nav-item">
-												<NavLink to="/admin/add-company" onClick={handleClickMenu}>
+												<NavLink to="/admin/add-company" onClick={() => setOpen(false)}>
 													Lägg till företag
 												</NavLink>
 											</li>
@@ -87,13 +88,13 @@ const Navigation = () => {
 									) : (
 										<div className="navbar-menu-list-container">
 											<li className="nav-item">
-												<NavLink to="/" onClick={handleClickMenu}>Home <span className="sr-only">(current)</span></NavLink>
+												<NavLink to="/" onClick={() => setOpen(false)}>Home <span className="sr-only">(current)</span></NavLink>
 											</li>
 											<li className="nav-item">
-												<NavLink to="/about" onClick={handleClickMenu}>Om oss <span className="sr-only">(current)</span></NavLink>
+												<NavLink to="/about" onClick={() => setOpen(false)}>Om oss <span className="sr-only">(current)</span></NavLink>
 											</li>
 											<li className="nav-item">
-												<NavLink to="/contact" onClick={handleClickMenu}>Kontakt <span className="sr-only">(current)</span></NavLink>
+												<NavLink to="/contact" onClick={() => setOpen(false)}>Kontakt <span className="sr-only">(current)</span></NavLink>
 											</li>
 										</div>
 									)
@@ -104,7 +105,7 @@ const Navigation = () => {
 				</div>
 			</nav>
 			<div className="whitespace"></div>
-			{!currentUser &&  <SearchBar open={open} />}
+			{(!currentUser && location.pathname !== '/admin') ? <SearchBar open={open} /> : ''}
 		</>
 	)
 }

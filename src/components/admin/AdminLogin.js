@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import './AdminLogin.scss'
 
 const AdminLogin = () => {
 	const emailRef = useRef()
@@ -22,8 +23,8 @@ const AdminLogin = () => {
 		}
 	}
 	return (
-		<>
-			<div className="card">
+		<div className="container mt-5">
+			<div className="card card-container">
 				<div className="card-body">
 					<h5 className="card-title">Admin Login</h5>
 						{error && (<div className="alert alert-danger">{error}</div>)}
@@ -54,7 +55,7 @@ const AdminLogin = () => {
 						</form>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
