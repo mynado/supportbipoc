@@ -5,6 +5,7 @@ import useClickOutside from '../../hooks/useClickOutside'
 import logo from '../../assets/icons/logo/logo-outline-web.png'
 import './Navigation.scss'
 import SearchBar from '../search/SearchBar'
+import Categories from '../categories/Categories'
 
 const Navigation = () => {
 	const node = useRef();
@@ -105,7 +106,13 @@ const Navigation = () => {
 				</div>
 			</nav>
 			<div className="whitespace"></div>
-			{(!currentUser && location.pathname !== '/admin') ? <SearchBar open={open} /> : ''}
+			{(!currentUser && location.pathname !== '/admin') 
+				? (
+					<>
+						<SearchBar open={open} />
+						{location.pathname !== '/' && <Categories />}
+					</>
+				) : ''}
 		</>
 	)
 }

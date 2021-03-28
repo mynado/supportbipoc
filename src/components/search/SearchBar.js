@@ -5,15 +5,13 @@ import useClickOutside from '../../hooks/useClickOutside'
 import { FiSearch } from 'react-icons/fi'
 // import { IoFilterSharp } from 'react-icons/io5'
 import './SearchBar.scss'
-import SearchFilter from './SearchFilter'
-import Categories from '../categories/Categories'
+// import SearchFilter from './SearchFilter'
 
 const SearchBar = ({ open }) => {
 	const node = useRef()
 	const appContext = useContext(SearchContext)
 	const { handleSubmit, handleChange } = appContext
 	const search = useLocation().search;
-	const location = useLocation()
 	const query = new URLSearchParams(search).get('q');
 	const [openFilter, setOpenFilter] = useState(false)
 
@@ -56,9 +54,6 @@ const SearchBar = ({ open }) => {
 						{ openFilter &&(<div ref={node}><SearchFilter /></div>) }
 					</div> */}
 				</form>
-				{
-					location.pathname !== '/' && (<Categories />)
-				}
 			</div>
 		</>
 	)
