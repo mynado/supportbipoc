@@ -36,7 +36,7 @@ const SearchBar = ({ open }) => {
 
 	return (
 		<>
-			<div className="search-bar-container" style={ open ? {visibility: 'hidden'} : {}}>
+			<div className={`search-bar-container ${open ? 'search-bar-menu-open' : 'search-bar-menu-close'}`}>
 				<form onSubmit={handleSubmit} className="search-bar-form">
 					<div className="search-bar form-group d-flex">
 						{/* <div className="filter-button" onClick={handleOpenFilter}><IoFilterSharp /></div> */}

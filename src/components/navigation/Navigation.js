@@ -55,7 +55,7 @@ const Navigation = () => {
 									<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
 								</NavLink>)
 					}
-					<button className={`navbar-toggler ${open ? 'open' : ''}` } style={scroll ? {width: '30px', height: '24px'} : {}} onClick={handleClickMenu} id="nav-icon" ref={button}>
+					<button className={`navbar-toggler` } style={scroll ? {width: '30px', height: '24px'} : {}} onClick={handleClickMenu} id="nav-icon" ref={button}>
 						<span style={scroll ? {top: '0', height: '5px'} : {}}></span>
 						<span style={scroll ? {top: '8px', height: '5px'} : {}}></span>
 						<span style={scroll ? {top: '8px', height: '5px'} : {}}></span>
@@ -63,6 +63,12 @@ const Navigation = () => {
 					</button>
 					<div className={`navbar-menu fixed-top ${open ? 'menu-open' : 'menu-collapse'}`} ref={node}>
 						<div className="navbar-menu-container">
+						<button className={`navbar-toggler open` } style={scroll ? {width: '30px', height: '24px'} : {}} onClick={handleClickMenu} id="nav-icon" ref={button}>
+							<span style={scroll ? {top: '0', height: '5px'} : {}}></span>
+							<span style={scroll ? {top: '8px', height: '5px'} : {}}></span>
+							<span style={scroll ? {top: '8px', height: '5px'} : {}}></span>
+							<span style={scroll ? {top: '16px', height: '5px'} : {}}></span>
+						</button>
 							<ul className="navbar-menu-list" style={scroll ? {fontSize: '1rem'} : {fontSize: '1.25rem'}}>
 								{
 									currentUser ? (
