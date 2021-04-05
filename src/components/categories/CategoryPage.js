@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import useCategories from '../../hooks/useCategories'
 import Company from '../companies/Company'
+import './Categories.scss'
 
 const CategoryPage = () => {
 	const { categoryName } = useParams()
@@ -12,8 +13,8 @@ const CategoryPage = () => {
 	}
 
 	return (
-		<div className="container">
-			<h1>{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h1>
+		<div className="category-page container">
+			<h1 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h1>
 			<div className="row">
 				{
 					companies

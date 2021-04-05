@@ -1,8 +1,13 @@
-// Categories
+.category-page {
+  &-heading {
+    font-size: 1rem;
+  }
+}
+
 .categories {
   &-container {
     width: 100%;
-    padding-right: 0;
+    padding: 0;
   }
 
   &-list {
@@ -33,10 +38,13 @@
   overflow-x: scroll;
   flex-wrap: nowrap;
   justify-content: space-between;
+  font-size: 0.8rem;
+  padding-top: 1rem;
 
+  &::before,
   &::after {
     content: '';
-    border-left: 1px solid transparent; 
+    flex: 0 0 1rem;
   }
 
   li {
@@ -45,7 +53,7 @@
   }
 
   img {
-    width: 1.5rem;
+    width: 1rem;
   }
 }
 
