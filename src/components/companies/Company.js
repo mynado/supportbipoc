@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { db } from '../../firebase'
+import './Company.scss'
 
 const Company = (props) => {
 	const { currentUser } = useAuth()
@@ -20,23 +21,25 @@ const Company = (props) => {
 	}
 	return (
 		<div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-			<div className="card">
-				<img className="card-img-top" src={props.company.thumbnail_url ? props.company.thumbnail_url : "https://dummyimage.com/300x200/ccc/fff&text=No+Image"} alt="" />
-				<div className="card-body">
-					<h5 className="card-title">{props.company.name}</h5>
-					{error && (<div className="alert alert-danger">{error}</div>)}
-					<small>{props.company.category}</small>
-					<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					<div className="d-flex justify-content-end">
-						<Link to={`/companies/${props.company.slug}`} className="btn btn-primary">Mer</Link>
-						{
-							currentUser && (
-								<button onClick={handleDelete} className="btn btn-danger ml-2">-</button>
-							)
-						}
+			<Link to={`/companies/${props.company.slug}`}>
+				<div className="card">
+					<div className="card-img-container">
+						<img className="card-img-top" src={props.company.thumbnail_url ? props.company.thumbnail_url : "https://dummyimage.com/300x200/ccc/fff&text=No+Image"} alt="" />
+					</div>
+					<div className="card-body">
+						<h5 className="card-title">{props.company.name}</h5>
+						{error && (<div className="alert alert-danger">{error}</div>)}
+						<small>{props.company.category}</small>
+						<div className="d-flex justify-content-end">
+							{
+								currentUser && (
+									<button onClick={handleDelete} className="btn btn-danger ml-2">-</button>
+								)
+							}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 		</div>
 	)
 }

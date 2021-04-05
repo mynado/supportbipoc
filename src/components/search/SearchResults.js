@@ -7,7 +7,7 @@ const SearchResult = () => {
 	const { companies } = appContext
 
 	return (
-		<div className="row justify-content-start">
+		<div className="row justify-content-start mt-4">
 			{
 				companies
 				? (companies.map(company => (
