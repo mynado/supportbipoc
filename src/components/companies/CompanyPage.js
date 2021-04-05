@@ -19,13 +19,43 @@ const CompanyPage = () => {
 
 	return (
 		<>
-			<div className="company-content-container container">
-				<div className="company-image-container">
+			<div className="company-page-content-container container">
+				<div className="company-page-image-container">
 					<ImageSlider images={images}/>
 				</div>
-				<div className="company-info-container">
+				<div className="company-page-info-container">
 					<h1>{company.name}</h1>
-					<p>{company.address}</p>
+					<p>{company.info}</p>
+					<div className="company-page-info-details">
+						{
+							company.opening_hours && (
+								<small className="company-page-opening-hours">
+									<h5>Öppettider</h5>
+									<ul>
+										<li>Måndag: {company.opening_hours.monday}</li>
+										<li>Tisdag: {company.opening_hours.tuesday}</li>
+										<li>Onsdag: {company.opening_hours.wednesday}</li>
+										<li>Torsdag: {company.opening_hours.thursday}</li>
+										<li>Fredag: {company.opening_hours.friday}</li>
+										<li>Lördag: {company.opening_hours.saturday}</li>
+										<li>Söndag: {company.opening_hours.sunday}</li>
+									</ul>
+								</small>
+							)
+						}
+						{
+							company.address && (
+								<small className="company-page-address">
+									<h5>Adress</h5>
+									<ul>
+										<li>{company.address.street}</li>
+										<li>{company.address.zip} {company.address.city}</li>
+										<li>{company.address.area}</li>
+									</ul>
+								</small>
+							)
+						}
+					</div>
 				</div>
 			</div>
 

@@ -1,7 +1,23 @@
-.company {
-  &-info-container {
-    margin: 1rem;
+.company-page {
+  &-image-container {
+    margin-bottom: 1rem;
   }
+
+  &-info-container {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-info-details {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 .button-container {
