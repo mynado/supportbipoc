@@ -1,6 +1,8 @@
-.card {
-    height: 150px;
+.company-card {
+    height: 170px;
+}
 
+.card {
     &-img-container {
         height: 80px;
         object-fit: cover;

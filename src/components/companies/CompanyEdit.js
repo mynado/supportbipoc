@@ -5,6 +5,7 @@ import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
 import useDeleteImage from '../../hooks/useDeleteImage'
 import UploadImage from '../images/UploadImage'
+import './CompanyEdit.scss'
 
 const CompanyEdit = () => {
 	const nameRef = useRef()
@@ -57,10 +58,9 @@ const CompanyEdit = () => {
 
 	}
 
-
 	return (
-		<>
-			<div className="card">
+		<div className="company-edit-container">
+			<div className="card company-edit-card">
 				<div className="card-body">
 					<h5 className="card-title">{company.name}</h5>
 						{error && (<div className="alert alert-danger">{error}</div>)}
@@ -135,7 +135,7 @@ const CompanyEdit = () => {
 						</form>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

@@ -50,4 +50,17 @@ ul {
       width: 50%;
     }
   }
+
+  .company-page {
+    &-info-details {
+      justify-content: flex-start;
+    }
+    &-opening-hours {
+      margin-right: 2rem;
+    }
+  }
+
+  .carousel .carousel-slider {
+    height: 200px;
+  }
 }

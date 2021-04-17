@@ -24,7 +24,7 @@ const AdminLogin = () => {
 	}
 	return (
 		<div className="container mt-5">
-			<div className="card card-container">
+			<div className="card card-container admin-card">
 				<div className="card-body">
 					<h5 className="card-title">Admin Login</h5>
 						{error && (<div className="alert alert-danger">{error}</div>)}

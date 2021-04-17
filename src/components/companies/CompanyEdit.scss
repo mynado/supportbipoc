@@ -1,0 +1,11 @@
+.company-edit-container {
+    width: 100%;
+    padding: 1rem;
+}
+
+@media (min-width: 900px) {
+    .company-edit-card {
+        width: 600px;
+        margin: 0 auto;
+    }
+}

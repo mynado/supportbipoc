@@ -35,7 +35,7 @@
     list-style-type: none;
     position: absolute;
     top: 20vh;
-    left: 2vh;
+    right: 2vh;
     line-height: 2.5rem;
     font-size: 1.75rem;
   }
@@ -145,6 +145,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      margin: 0.5rem 1rem;
     }
   }
 

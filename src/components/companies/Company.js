@@ -22,7 +22,7 @@ const Company = (props) => {
 	return (
 		<div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
 			<Link to={`/companies/${props.company.slug}`}>
-				<div className="card">
+				<div className="card company-card">
 					<div className="card-img-container">
 						<img className="card-img-top" src={props.company.thumbnail_url ? props.company.thumbnail_url : "https://dummyimage.com/300x200/ccc/fff&text=No+Image"} alt="" />
 					</div>
@@ -33,7 +33,7 @@ const Company = (props) => {
 						<div className="d-flex justify-content-end">
 							{
 								currentUser && (
-									<button onClick={handleDelete} className="btn btn-danger ml-2">-</button>
+									<button onClick={handleDelete} className="btn ml-2">X</button>
 								)
 							}
 						</div>
