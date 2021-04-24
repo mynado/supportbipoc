@@ -5,7 +5,7 @@ import SearchResults from './SearchResults'
 const SearchPage = () => {
 	return (
 		<div className="container">
-			<div className="d-flex justify-content-between">
+			<div className="d-flex justify-content-between mb-4">
 				<h2>Sökresultat</h2>
 				<SearchSort />
 			</div>
