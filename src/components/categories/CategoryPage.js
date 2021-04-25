@@ -34,7 +34,7 @@ const CategoryPage = () => {
 				onClick={() => {
 					setMapFocus(false)
 				}}>
-				<h1 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h1>
+				<h2 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h2>
 				<div className="row">
 					{
 						companies

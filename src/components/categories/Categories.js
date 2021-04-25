@@ -10,7 +10,7 @@ const Categories = () => {
 	const location = useLocation()
 
 	return (
-		<div className="categories-container container">
+		<div className="categories-container">
 			<ul className={`row categories-list ${location.pathname !== '/' ? 'overflow-style' : ''}`}>
 				<li className="col-6 categories-list-item">
 					<Link to="/categories/restaurant" className="categories-link">

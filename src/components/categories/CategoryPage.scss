@@ -1,9 +1,3 @@
-.category-page {
-    &-heading {
-        font-size: 1rem;
-    }
-}
-
 .category-page-content-wrapper {
     position: fixed;
     bottom: 0;
@@ -14,7 +8,7 @@
     background-color: #fff;
     overflow-y: auto;
     padding: 32px 16px;
-    margin: 32px auto;
+    margin: 0 auto;
     transition: all 0.5s ease-in-out;
     z-index: 2;
 }
@@ -29,5 +23,6 @@
         position: relative;
         border-radius: none;
         padding-top: 0;
+        margin: 32px auto;
     }
 }
