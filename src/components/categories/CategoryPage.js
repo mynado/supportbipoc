@@ -1,18 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useCategories from '../../hooks/useCategories'
 import Company from '../companies/Company'
 import MapView from '../map/MapView'
+import useCurrentLocation from '../../hooks/useCurrentLocation'
 import './CategoryPage.scss'
 
 const CategoryPage = () => {
 	const { categoryName } = useParams()
 	const { companies, loading } = useCategories(categoryName)
+	const { userLocation } = useCurrentLocation()
+	const [currentUserLocation, setCurrentUserLocation] = useState(null)
 	const [mapFocus, setMapFocus] = useState(false)
 
-	if (loading) {
-		return (<p>Loading...</p>)
-	}
+	useEffect(() => {
+		if (loading) {
+			return (<p>Loading...</p>)
+		}
+		setCurrentUserLocation(userLocation)
+	}, [userLocation, currentUserLocation, loading])
 
 	return (
 		<div className="category-page">
@@ -33,7 +39,10 @@ const CategoryPage = () => {
 					{
 						companies
 						? (companies.map(company => (
-							<Company company={company} key={company.id}/>
+							<Company
+								company={company}
+								key={company.id}
+								userLocation={currentUserLocation}/>
 						)))
 						: 'Finns inga sökresultat'
 					}

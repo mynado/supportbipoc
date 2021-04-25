@@ -42,7 +42,7 @@ const Company = (props) => {
 						{error && (<div className="alert alert-danger">{error}</div>)}
 						<div className="category-distance-wrapper"> 
 							<small>{props.company.category}</small>
-							<small>{getDistancefromLocation()} m away</small>
+							<small>{ props.userLocation && `${getDistancefromLocation()} m away`}</small>
 						</div>
 						<div className="d-flex justify-content-end">
 							{
