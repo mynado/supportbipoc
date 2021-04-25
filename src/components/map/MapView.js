@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { RiUserLocationFill } from 'react-icons/ri'
-import ReactMapGL, { Marker } from "react-map-gl"
+import ReactMapGL, { GeolocateControl, NavigationControl } from "react-map-gl"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './MapView.scss'
 import CustomMarker from './CustomMarker'
@@ -8,7 +7,6 @@ import CustomMarker from './CustomMarker'
 
 const MapView = (props) => {
   const [companies, setCompanies] = useState([])
-  const [userLocation, setUserLocation] = useState({})
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "400px",
@@ -19,13 +17,12 @@ const MapView = (props) => {
 
   useEffect(() => {
     setCompanies(props.companies)
-    console.log(props.companies)
+    handleUserLocation()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companies])
 
   const handleUserLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log(position.coords.latitude)
       console.log(position.coords.longitude)
         let newPosition = {
             latitude: position.coords.latitude,
@@ -35,9 +32,7 @@ const MapView = (props) => {
             ...viewport,
             latitude: newPosition.latitude,
             longitude: newPosition.longitude,
-            zoom: 15,
         })
-        setUserLocation(newPosition)
     })
   }
 
@@ -48,20 +43,25 @@ const MapView = (props) => {
 
   return (
     <div>
-      <button onClick={handleUserLocation}>My position</button>
       <ReactMapGL
         {...viewport}
-        onViewportChange={(viewport => setViewport({...viewport, longitude: companies[0].coordinates.x_, latitude: companies[0].coordinates.N_}))}
+        onViewportChange={(viewport => setViewport({...viewport}))}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}>
           {markers}
-          {Object.keys(userLocation).length !== 0 ? (
-            <Marker
-              latitude={userLocation.latitude}
-              longitude={userLocation.longitude}
-            >
-              <RiUserLocationFill />
-            </Marker>
-          ) : ''}
+          <div class="map-control-container">
+            <NavigationControl style={{
+                position: 'relative'
+              }}/>
+            <GeolocateControl
+              style={{
+                position: 'relative',
+                'margin-top': '8px',
+              }}
+              positionOptions={{enableHighAccuracy: true}}
+              trackUserLocation={true}
+              auto
+            />
+          </div>
       </ReactMapGL>
     </div>
   )
