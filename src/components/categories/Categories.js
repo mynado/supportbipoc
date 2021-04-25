@@ -13,42 +13,42 @@ const Categories = () => {
 		<div className="categories-container container">
 			<ul className={`row categories-list ${location.pathname !== '/' ? 'overflow-style' : ''}`}>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/restaurant">
+					<Link to="/categories/restaurant" className="categories-link">
 						<img src={restaurantIcon} className="categories-icon" alt="" /> Restauranger
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/barber">
+					<Link to="/categories/barber" className="categories-link">
 						<img src={barberIcon} className="categories-icon" alt="" /> Barber
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/livsmedelsbutik">
+					<Link className="categories-link" to="/categories/livsmedelsbutik">
 						<img src={groceriesIcon} className="categories-icon" alt="" /> Livsmedel
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/fast-food">
+					<Link className="categories-link" to="/categories/fast-food">
 						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/fast-food">
+					<Link className="categories-link" to="/categories/fast-food">
 						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/fast-food">
+					<Link className="categories-link" to="/categories/fast-food">
 						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/fast-food">
+					<Link className="categories-link" to="/categories/fast-food">
 						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
 					</Link>
 				</li>
 				<li className="col-6 categories-list-item">
-					<Link to="/categories/fast-food">
+					<Link className="categories-link" to="/categories/fast-food">
 						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
 					</Link>
 				</li>
