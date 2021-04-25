@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { db } from '../../firebase'
+import { db, geopoint } from '../../firebase'
 
 const AdminAddCompany = () => {
 	const nameRef = useRef()
 	const addressRef = useRef()
+	const latitudeRef = useRef()
+	const longitudeRef = useRef()
 	const categoryRef = useRef()
 	const infoRef = useRef()
 	const slugRef = useRef()
@@ -25,6 +27,7 @@ const AdminAddCompany = () => {
 				name: nameRef.current.value,
 				address: addressRef.current.value,
 				category: categoryRef.current.value,
+				coordinates: new geopoint.GeoPoint(Number(latitudeRef.current.value), Number(longitudeRef.current.value)),
 				info: infoRef.current.value,
 				slug: slugRef.current.value,
 				search_term: searchTermArray,
@@ -42,11 +45,11 @@ const AdminAddCompany = () => {
 		<>
 			<div className="card container">
 				<div className="card-body">
-					<h5 className="card-title">Add Company</h5>
+					<h2 className="card-title mb-3">Lägg till företag</h2>
 						{error && (<div className="alert alert-danger">{error}</div>)}
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
-								<label>Name</label>
+								<label>Företagsnamn</label>
 								<input 
 									type="text"
 									className="form-control"
@@ -59,6 +62,25 @@ const AdminAddCompany = () => {
 									type="text"
 									className="form-control"
 									ref={addressRef}/>
+							</div>
+							<div className="form-group">
+								<label>Koordinater</label>
+								<div className="d-flex justify-content-between align-items-center">
+									<div className="mr-2">
+										<label>Latitud</label>
+										<input
+											type="text"
+											className="form-control"
+											ref={latitudeRef}/>
+									</div>
+									<div>
+										<label>Longitud</label>
+										<input
+											type="text"
+											className="form-control"
+											ref={longitudeRef}/>
+									</div>
+								</div>
 							</div>
 							<div className="form-group">
 								<label>Välj en kategori</label>

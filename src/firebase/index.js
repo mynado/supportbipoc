@@ -25,4 +25,7 @@ const db = firebase.firestore()
 // get firebase storage instance
 const storage = firebase.storage()
 
-export { auth, db, storage, firebase as default }
+// get geopint
+const geopoint = firebase.firestore
+
+export { auth, db, storage, geopoint, firebase as default }
