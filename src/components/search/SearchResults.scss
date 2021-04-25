@@ -1,0 +1,21 @@
+.company-wrapper {
+    position: fixed;
+    bottom: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 58%;
+    width: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+    padding: 64px 0 32px 0;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.map-focus {
+    height: 80%;
+}
+
+.map-focus-list {
+    height: 20%;
+}

@@ -37,7 +37,7 @@ const MapView = (props) => {
   }
 
   const markers = useMemo(() => props.companies.map((company, index) => (
-      <CustomMarker company={company} index={index}/>
+      <CustomMarker key={company.id} company={company} index={index}/>
     )
   ), [props.companies])
 
@@ -48,14 +48,14 @@ const MapView = (props) => {
         onViewportChange={(viewport => setViewport({...viewport}))}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}>
           {markers}
-          <div class="map-control-container">
+          <div className="map-control-container">
             <NavigationControl style={{
                 position: 'relative'
               }}/>
             <GeolocateControl
               style={{
                 position: 'relative',
-                'margin-top': '8px',
+                marginTop: '8px',
               }}
               positionOptions={{enableHighAccuracy: true}}
               trackUserLocation={true}
