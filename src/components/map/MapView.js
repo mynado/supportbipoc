@@ -13,7 +13,7 @@ const MapView = (props) => {
     if (props.page === 'search') {
       setViewport({
         width: "100vw",
-        height: "600px",
+        height: "550px",
         latitude: 55.6019,
         longitude: 12.9984,
         zoom: 13
