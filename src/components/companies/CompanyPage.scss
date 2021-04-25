@@ -4,6 +4,11 @@
   }
 
   &-info-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 16px;
+    padding-top: 0;
+
     h1 {
       font-size: 1.5rem;
     }
@@ -15,13 +20,22 @@
   }
 }
 
+.map-wrapper {
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-.button-container {
-  margin: 1rem;
+.button-back {
+  margin-bottom: 16px;
+}
+
+.button-back svg {
+  width: 24px;
+  height: 24px;
 }
 
 .button-custom {

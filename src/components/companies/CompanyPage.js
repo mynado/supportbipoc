@@ -5,6 +5,7 @@ import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
 import ImageSlider from '../images/ImageSlider'
 import MapView from '../map/MapView'
+import { IoChevronBackSharp } from 'react-icons/io5'
 import './CompanyPage.scss'
 
 const CompanyPage = () => {
@@ -20,11 +21,19 @@ const CompanyPage = () => {
 
 	return (
 		<>
-			<div className="company-page-content-container container">
+			<div className="company-page-content-container">
 				<div className="company-page-image-container">
 					<ImageSlider images={images}/>
 				</div>
+				{
+					currentUser && (
+						<div className="mt-3">
+							<Link to={`/companies/${company.slug}/edit`} className="btn btn-primary">Ändra</Link>
+						</div>
+					)
+				}
 				<div className="company-page-info-container">
+					<button onClick={() => navigate(-1)} className="btn button-custom button-back"><IoChevronBackSharp /></button>
 					<h1>{company.name}</h1>
 					<p>{company.info}</p>
 					<div className="company-page-info-details">
@@ -48,28 +57,15 @@ const CompanyPage = () => {
 							company.address && (
 								<small className="company-page-address">
 									<h5>Adress</h5>
-									<ul>
-										<li>{company.address.street}</li>
-										<li>{company.address.zip} {company.address.city}</li>
-										<li>{company.address.area}</li>
-									</ul>
+									<p>{company.address}</p>
 								</small>
 							)
 						}
 					</div>
 				</div>
-				<MapView companies={[company]} page={'company-page'}/>
-			</div>
-
-			<div className="button-container d-flex justify-content-between">
-				<button onClick={() => navigate(-1)} className="btn button-custom">&laquo; Back</button>
-				{
-				currentUser && (
-					<div className="mt-3">
-						<Link to={`/companies/${company.slug}/edit`} className="btn btn-primary">Ändra</Link>
-					</div>
-				)
-			}
+				<div className="map-wrapper">
+					<MapView companies={[company]} page={'company-page'}/>
+				</div>
 			</div>
 		</>
 	)
