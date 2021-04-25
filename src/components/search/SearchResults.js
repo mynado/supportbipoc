@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { SearchContext } from '../../contexts/SearchContext'
+import SearchSort from './SearchSort'
 import Company from '../companies/Company'
 import MapView from '../map/MapView'
 import './SearchResults.scss'
@@ -16,7 +17,7 @@ const SearchResult = () => {
 					? (
 						<>
 							<div
-								className={`map-wrapper ${mapFocus ? 'map-focus' : ''}`}
+								className="map-wrapper"
 								onClick={() => {
 									setMapFocus(true)
 								}}>
@@ -27,6 +28,10 @@ const SearchResult = () => {
 								onClick={() => {
 									setMapFocus(false)
 								}}>
+								<div className="results-heading-wrapper">
+									<h2>Sökresultat</h2>
+									<SearchSort />
+								</div>
 								{
 									companies.map(company => (
 										<Company company={company} key={company.id}/>

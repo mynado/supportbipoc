@@ -9,7 +9,7 @@ const MapView = (props) => {
   const [companies, setCompanies] = useState([])
   const [viewport, setViewport] = useState({
     width: "100%",
-    height: "400px",
+    height: "600px",
     latitude: 55.6019,
     longitude: 12.9984,
     zoom: 13

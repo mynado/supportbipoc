@@ -6,12 +6,12 @@ import Navigation from './components/navigation/Navigation'
 import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
 import AdminHome from './components/admin/AdminHome'
-import SearchPage from './components/search/SearchPage'
 import CompanyPage from './components/companies/CompanyPage'
 import CompanyAdd from './components/companies/CompanyAdd'
 import Companies from './components/companies/Companies'
 import CompanyEdit from './components/companies/CompanyEdit'
 import CategoryPage from './components/categories/CategoryPage'
+import SearchResult from './components/search/SearchResults'
 
 function App() {
 	const homePage = useLocation().pathname === '/'
@@ -55,7 +55,7 @@ function App() {
 					</Route>
 
 					<Route path="/search">
-						<SearchPage />
+						<SearchResult />
 					</Route>
 
 					<Route path="/categories">
