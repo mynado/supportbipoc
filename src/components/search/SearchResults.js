@@ -1,14 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SearchContext } from '../../contexts/SearchContext'
 import SearchSort from './SearchSort'
 import Company from '../companies/Company'
 import MapView from '../map/MapView'
+import useCurrentLocation from '../../hooks/useCurrentLocation'
 import './SearchResults.scss'
 
 const SearchResult = () => {
 	const appContext = useContext(SearchContext)
 	const { companies } = appContext
+	const [currentUserLocation, setCurrentUserLocation] = useState(null)
 	const [mapFocus, setMapFocus] = useState(false)
+	const { userLocation } = useCurrentLocation()
+
+	useEffect(() => {
+		setCurrentUserLocation(userLocation)
+		console.log(currentUserLocation)
+	}, [userLocation, currentUserLocation])
 
 	return (
 		<>
@@ -21,7 +29,7 @@ const SearchResult = () => {
 								onClick={() => {
 									setMapFocus(true)
 								}}>
-								<MapView companies= {companies}/>
+								<MapView companies={companies} page={'search'}/>
 							</div>
 							<div
 								className={`company-wrapper row justify-content-start mt-4 ${mapFocus ? 'map-focus-list' : ''}`}
@@ -34,7 +42,7 @@ const SearchResult = () => {
 								</div>
 								{
 									companies.map(company => (
-										<Company company={company} key={company.id}/>
+										<Company company={company} key={company.id} userLocation={currentUserLocation}/>
 									))
 								}	
 							</div>

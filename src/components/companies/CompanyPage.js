@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
 import ImageSlider from '../images/ImageSlider'
+import MapView from '../map/MapView'
 import './CompanyPage.scss'
 
 const CompanyPage = () => {
@@ -57,6 +58,7 @@ const CompanyPage = () => {
 						}
 					</div>
 				</div>
+				<MapView companies={[company]} page={'company-page'}/>
 			</div>
 
 			<div className="button-container d-flex justify-content-between">

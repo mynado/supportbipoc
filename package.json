@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
     "firebase": "^8.2.1",
+    "geolib": "^3.3.1",
     "history": "^5.0.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",

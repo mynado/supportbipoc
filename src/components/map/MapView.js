@@ -7,34 +7,31 @@ import CustomMarker from './CustomMarker'
 
 const MapView = (props) => {
   const [companies, setCompanies] = useState([])
-  const [viewport, setViewport] = useState({
-    width: "100%",
-    height: "600px",
-    latitude: 55.6019,
-    longitude: 12.9984,
-    zoom: 13
-  })
+  const [viewport, setViewport] = useState(null)
 
   useEffect(() => {
+    if (props.page === 'search') {
+      setViewport({
+        width: "100%",
+        height: "600px",
+        latitude: 55.6019,
+        longitude: 12.9984,
+        zoom: 13
+      })
+    }
+
+    if (props.page === 'company-page') {
+      setViewport({
+        width: "100%",
+        height: "300px",
+        latitude: props.companies[0].coordinates.N_,
+        longitude: props.companies[0].coordinates.x_,
+        zoom: 15
+      }) 
+    }
     setCompanies(props.companies)
-    handleUserLocation()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companies])
-
-  const handleUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(position => {
-      console.log(position.coords.longitude)
-        let newPosition = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-        }
-        setViewport({
-            ...viewport,
-            latitude: newPosition.latitude,
-            longitude: newPosition.longitude,
-        })
-    })
-  }
 
   const markers = useMemo(() => props.companies.map((company, index) => (
       <CustomMarker key={company.id} company={company} index={index}/>
@@ -59,7 +56,7 @@ const MapView = (props) => {
               }}
               positionOptions={{enableHighAccuracy: true}}
               trackUserLocation={true}
-              auto
+              auto={props.page === 'search' ? true : false}
             />
           </div>
       </ReactMapGL>
