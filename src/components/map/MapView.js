@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { IoLocationSharp } from 'react-icons/io5'
 import { RiUserLocationFill } from 'react-icons/ri'
 import ReactMapGL, { Marker } from "react-map-gl"
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './MapView.scss'
+import CustomMarker from './CustomMarker'
 
 
 const MapView = (props) => {
@@ -23,12 +23,6 @@ const MapView = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companies])
 
-  const markers = useMemo(() => props.companies.map(company => (
-      <Marker key={company.id} longitude={company.coordinates.x_} latitude={company.coordinates.N_} >
-        <IoLocationSharp />
-      </Marker>)
-  ), [props.companies])
-
   const handleUserLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       console.log(position.coords.latitude)
@@ -45,7 +39,12 @@ const MapView = (props) => {
         })
         setUserLocation(newPosition)
     })
-}
+  }
+
+  const markers = useMemo(() => props.companies.map((company, index) => (
+      <CustomMarker company={company} index={index}/>
+    )
+  ), [props.companies])
 
   return (
     <div>
