@@ -32,7 +32,7 @@ const SearchResult = () => {
 								<MapView companies={companies} page={'search'}/>
 							</div>
 							<div
-								className={`company-wrapper row justify-content-start mt-4 ${mapFocus ? 'map-focus-list' : ''}`}
+								className={`company-container row ${mapFocus ? 'map-focus-list' : ''}`}
 								onClick={() => {
 									setMapFocus(false)
 								}}>
@@ -40,11 +40,13 @@ const SearchResult = () => {
 									<h2>Sökresultat</h2>
 									<SearchSort />
 								</div>
-								{
-									companies.map(company => (
-										<Company company={company} key={company.id} userLocation={currentUserLocation}/>
-									))
-								}	
+								<div className="company-wrapper">
+									{
+										companies.map(company => (
+											<Company company={company} key={company.id} userLocation={currentUserLocation}/>
+										))
+									}	
+								</div>
 							</div>
 						</>
 					) : <p>Finns inga sökresultat</p>

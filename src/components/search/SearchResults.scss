@@ -1,9 +1,9 @@
-.company-wrapper {
+.company-container {
     position: fixed;
     bottom: 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    height: 58%;
+    height: 65%;
     width: 100%;
     background-color: #fff;
     overflow-y: auto;
@@ -11,6 +11,14 @@
     margin: 0 auto;
     transition: all 0.5s ease-in-out;
     z-index: 2;
+}
+
+.company-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .map-focus-list {
@@ -24,4 +32,15 @@
     align-items: center;
     padding: 16px;
     width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .company-container {
+        position: relative;
+        border-radius: none;
+        padding-top: 0;
+    }
+    .results-heading-wrapper {
+        align-items: flex-start;
+    }
 }

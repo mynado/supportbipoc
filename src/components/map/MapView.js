@@ -12,7 +12,7 @@ const MapView = (props) => {
   useEffect(() => {
     if (props.page === 'search') {
       setViewport({
-        width: "100%",
+        width: "100vw",
         height: "600px",
         latitude: 55.6019,
         longitude: 12.9984,
@@ -22,7 +22,7 @@ const MapView = (props) => {
 
     if (props.page === 'company-page') {
       setViewport({
-        width: "100%",
+        width: "100vw",
         height: "300px",
         latitude: props.companies[0].coordinates.N_,
         longitude: props.companies[0].coordinates.x_,
