@@ -15,7 +15,6 @@ const SearchResult = () => {
 
 	useEffect(() => {
 		setCurrentUserLocation(userLocation)
-		console.log(currentUserLocation)
 	}, [userLocation, currentUserLocation])
 
 	return (

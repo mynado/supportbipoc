@@ -4,7 +4,6 @@ import { Carousel } from 'react-responsive-carousel'
 import './ImageSlider.scss'
 
 const ImageSlider = (props) => {
-	console.log(props)
 	return (
 		<Carousel showThumbs={false} showStatus={false}>
 			{
