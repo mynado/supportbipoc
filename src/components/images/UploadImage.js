@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import useUploadImage from '../../hooks/useUploadImage'
+import './UploadImage.scss'
 
 const UploadImage = (props) => {
 	const [uploadImage, setUploadImage] = useState(null)
@@ -43,7 +44,7 @@ const UploadImage = (props) => {
 			{
 				isDragActive 
 					? isDragAccept ? <p>Drop it like it's hot! 🔥🔫</p> : <p>We don't want that file! 😨</p>
-					: <p>Drop your files here!</p>
+					: <p className="upload-image-dropzone-text">Drop your files here!</p>
 			}
 
 			{

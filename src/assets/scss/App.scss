@@ -40,3 +40,19 @@ a {
     width: 24px;
   }
 }
+
+.btn-update {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background-color: #3B2A1E;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .btn-update {
+    display: block;
+    margin: 0 0 0 auto;
+    width: 200px;
+  }
+}

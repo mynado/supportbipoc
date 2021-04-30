@@ -10,16 +10,27 @@ import UploadImage from '../images/UploadImage'
 import './CompanyEdit.scss'
 
 const CompanyEdit = () => {
-	const nameRef = useRef()
 	const addressRef = useRef()
 	const categoryRef = useRef()
 	const infoRef = useRef()
-	const slugRef = useRef()
+	const nameRef = useRef()
+	const emailRef = useRef()
+	const phoneRef = useRef()
 	const searchTermRef = useRef()
 	const thumbnailUrlRef = useRef()
+	const websiteRef = useRef()
+	
+	const mondayRef = useRef()
+	const tuesdayRef = useRef()
+	const wednesdayRef = useRef()
+	const thursdayRef = useRef()
+	const fridayRef = useRef()
+	const saturdayRef = useRef()
+	const sundayRef = useRef()
+
 	const { companyName } = useParams()
 	const { company, loading } = useCompany(companyName)
-	const { images, imgLoading } = useImages(company)
+	const { images } = useImages(company)
 	const [deleteImage, setDeleteImage] = useState(null)
 	const [formLoading, setFormLoading] = useState(false)
 	const [error, setError] = useState(false)
@@ -51,9 +62,20 @@ const CompanyEdit = () => {
 				address: addressRef.current.value,
 				category: categoryRef.current.value,
 				info: infoRef.current.value,
-				slug: slugRef.current.value,
+				email: emailRef.current.value,
+				opening_hours: {
+					monday: mondayRef.current.value,
+					tuesday: tuesdayRef.current.value,
+					wednesday: wednesdayRef.current.value,
+					thursday: thursdayRef.current.value,
+					friday: fridayRef.current.value,
+					saturday: saturdayRef.current.value,
+					sunday: sundayRef.current.value,
+				},
+				phone: phoneRef.current.value,
 				search_term: searchTermArray,
 				thumbnail_url: thumbnailUrlRef.current.value,
+				website: websiteRef.current.value,
 			})
 
 			navigate(`/companies/${company.slug}`)
@@ -95,6 +117,30 @@ const CompanyEdit = () => {
 									ref={addressRef}/>
 							</div>
 							<div className="form-group">
+								<label>Hemsida</label>
+								<input
+									type="text"
+									className="form-control"
+									defaultValue={company.website}
+									ref={websiteRef}/>
+							</div>
+							<div className="form-group">
+								<label>Mail</label>
+								<input
+									type="text"
+									className="form-control"
+									defaultValue={company.email}
+									ref={emailRef}/>
+							</div>
+							<div className="form-group">
+								<label>Telefon</label>
+								<input
+									type="text"
+									className="form-control"
+									defaultValue={company.phone}
+									ref={phoneRef}/>
+							</div>
+							<div className="form-group">
 								<label>Välj en kategori</label>
 								<select className="form-control" ref={categoryRef} defaultValue={company.category}>
 									<option value="barber">Barberare</option>
@@ -113,12 +159,58 @@ const CompanyEdit = () => {
 									ref={infoRef}></textarea>
 							</div>
 							<div className="form-group">
-								<label>Slug</label>
-								<input
-									type="text"
-									className="form-control"
-									defaultValue={company.slug}
-									ref={slugRef}/>
+								<label>Öppettider</label>
+								<ul className="opening-hours-list">
+									<li className="opening-hours-list-item">
+										Måndag: 
+										<input 
+											type="text" 
+											className="form-control" 
+											defaultValue={company.opening_hours && company.opening_hours.monday ? company.opening_hours.monday : ''} ref={mondayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Tisdag: 
+										<input 
+											type="text" 
+											className="form-control" 
+											defaultValue={company.opening_hours && company.opening_hours.tuesday ? company.opening_hours.tuesday : ''} ref={tuesdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Onsdag: 
+										<input
+											type="text"
+											className="form-control"
+											defaultValue={company.opening_hours && company.opening_hours.wednesday ? company.opening_hours.wednesday : ''} ref={wednesdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Thursday: 
+										<input
+											type="text"
+											className="form-control"
+											defaultValue={company.opening_hours && company.opening_hours.thursday ? company.opening_hours.thursday : ''} ref={thursdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Fredag: 
+										<input
+											type="text"
+											className="form-control"
+											defaultValue={company.opening_hours && company.opening_hours.friday ? company.opening_hours.friday : ''} ref={fridayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Saturday: 
+										<input
+											type="text"
+											className="form-control"
+											defaultValue={company.opening_hours && company.opening_hours.saturday ? company.opening_hours.saturday : ''} ref={saturdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Sunday: 
+										<input
+											type="text"
+											className="form-control"
+											defaultValue={company.opening_hours && company.opening_hours.sunday ? company.opening_hours.sunday : ''} ref={sundayRef}/>
+									</li>
+								</ul>
 							</div>
 							<div className="form-group">
 								<label>Sökord</label>

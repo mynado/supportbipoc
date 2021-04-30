@@ -3,16 +3,28 @@ import { useNavigate } from 'react-router-dom'
 import { db, geopoint } from '../../firebase'
 
 const AdminAddCompany = () => {
-	const nameRef = useRef()
 	const addressRef = useRef()
+	const categoryRef = useRef()
+	const emailRef = useRef()
+	const infoRef = useRef()
 	const latitudeRef = useRef()
 	const longitudeRef = useRef()
-	const categoryRef = useRef()
-	const infoRef = useRef()
-	const slugRef = useRef()
+	const nameRef = useRef()
+	const phoneRef = useRef()
 	const searchTermRef = useRef()
+	const websiteRef = useRef()
+
+	const mondayRef = useRef()
+	const tuesdayRef = useRef()
+	const wednesdayRef = useRef()
+	const thursdayRef = useRef()
+	const fridayRef = useRef()
+	const saturdayRef = useRef()
+	const sundayRef = useRef()
+
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(false)
+	const [slug, setSlug] = useState(null)
 	const navigate = useNavigate()
 
 	const handleSubmit = async (e) => {
@@ -28,17 +40,33 @@ const AdminAddCompany = () => {
 				address: addressRef.current.value,
 				category: categoryRef.current.value,
 				coordinates: new geopoint.GeoPoint(Number(latitudeRef.current.value), Number(longitudeRef.current.value)),
+				email: emailRef.current.value,
 				info: infoRef.current.value,
-				slug: slugRef.current.value,
+				opening_hours: {
+					monday: mondayRef.current.value,
+					tuesday: tuesdayRef.current.value,
+					wednesday: wednesdayRef.current.value,
+					thursday: thursdayRef.current.value,
+					friday: fridayRef.current.value,
+					saturday: saturdayRef.current.value,
+					sunday: sundayRef.current.value,
+				},
+				phone: phoneRef.current.value,
+				slug: slug,
 				search_term: searchTermArray,
+				website: websiteRef.current.value,
 			})
 
-			navigate(`/admin/home`)
+			navigate(`/companies/${slug}`)
 		} catch (e) {
 			setError(e.message)
 			setLoading(false)
 		}
+	}
 
+	const handleSlug = (e) => {
+		e.preventDefault()
+		setSlug(e.target.value.replace(/\s+/g, '-').replace(/'/g, '').toLowerCase())
 	}
 
 	return (
@@ -54,6 +82,7 @@ const AdminAddCompany = () => {
 									type="text"
 									className="form-control"
 									ref={nameRef}
+									onChange={handleSlug}
 									required/>
 							</div>
 							<div className="form-group">
@@ -83,6 +112,27 @@ const AdminAddCompany = () => {
 								</div>
 							</div>
 							<div className="form-group">
+								<label>Hemsida</label>
+								<input
+									type="text"
+									className="form-control"
+									ref={websiteRef}/>
+							</div>
+							<div className="form-group">
+								<label>Mail</label>
+								<input
+									type="text"
+									className="form-control"
+									ref={emailRef}/>
+							</div>
+							<div className="form-group">
+								<label>Telefon</label>
+								<input
+									type="text"
+									className="form-control"
+									ref={phoneRef}/>
+							</div>
+							<div className="form-group">
 								<label>Välj en kategori</label>
 								<select className="form-control" ref={categoryRef}>
 									<option value="barber">Barberare</option>
@@ -100,12 +150,58 @@ const AdminAddCompany = () => {
 									ref={infoRef}></textarea>
 							</div>
 							<div className="form-group">
-								<label>Slug</label>
-								<input
-									type="text"
-									className="form-control"
-									placeholder="ex. company-name"
-									ref={slugRef}/>
+								<label>Öppettider</label>
+								<ul className="opening-hours-list">
+									<li className="opening-hours-list-item">
+										Måndag: 
+										<input 
+											type="text" 
+											className="form-control"
+											ref={mondayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Tisdag: 
+										<input 
+											type="text" 
+											className="form-control"
+											ref={tuesdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Onsdag: 
+										<input
+											type="text"
+											className="form-control"
+											ref={wednesdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Thursday: 
+										<input
+											type="text"
+											className="form-control"
+											ref={thursdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Fredag: 
+										<input
+											type="text"
+											className="form-control"
+											ref={fridayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Saturday: 
+										<input
+											type="text"
+											className="form-control"
+											ref={saturdayRef}/>
+									</li>
+									<li className="opening-hours-list-item">
+										Sunday: 
+										<input
+											type="text"
+											className="form-control"
+											ref={sundayRef}/>
+									</li>
+								</ul>
 							</div>
 							<div className="form-group">
 								<label>Sökord</label>
@@ -115,7 +211,7 @@ const AdminAddCompany = () => {
 									placeholder="ex. mat, malmö, vietnamesisk, hälsa, värnhem"
 									ref={searchTermRef}/>
 							</div>
-							<button disabled={loading} type="submit" className="btn btn-primary">Add</button>
+							<button disabled={loading} type="submit" className="btn btn-update">Add</button>
 						</form>
 				</div>
 			</div>
