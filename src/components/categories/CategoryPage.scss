@@ -13,6 +13,14 @@
     z-index: 2;
 }
 
+.company-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 .map-focus-list {
     height: 20%;
     transition: all 0.5s ease-in-out;

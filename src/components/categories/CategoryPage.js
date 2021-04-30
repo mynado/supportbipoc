@@ -18,6 +18,11 @@ const CategoryPage = () => {
 			return (<p>Loading...</p>)
 		}
 		setCurrentUserLocation(userLocation)
+		document.body.style.overflow = "hidden"
+		const unsubscribe =  () => {
+			document.body.style.overflow = "unset"
+		}
+		return unsubscribe
 	}, [userLocation, currentUserLocation, loading])
 
 	return (
@@ -35,7 +40,7 @@ const CategoryPage = () => {
 					setMapFocus(false)
 				}}>
 				<h2 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h2>
-				<div className="row">
+				<div className="company-wrapper">
 					{
 						companies
 						? (companies.map(company => (

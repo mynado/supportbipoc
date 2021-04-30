@@ -15,6 +15,11 @@ const SearchResult = () => {
 
 	useEffect(() => {
 		setCurrentUserLocation(userLocation)
+		document.body.style.overflow = "hidden"
+		const unsubscribe =  () => {
+			document.body.style.overflow = "unset"
+		}
+		return unsubscribe
 	}, [userLocation, currentUserLocation])
 
 	return (

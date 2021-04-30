@@ -71,7 +71,7 @@ const AdminAddCompany = () => {
 
 	return (
 		<>
-			<div className="card container">
+			<div className="card container mt-5">
 				<div className="card-body">
 					<h2 className="card-title mb-3">Lägg till företag</h2>
 						{error && (<div className="alert alert-danger">{error}</div>)}
