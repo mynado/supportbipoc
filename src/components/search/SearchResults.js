@@ -41,7 +41,7 @@ const SearchResult = () => {
 									setMapFocus(false)
 								}}>
 								<div className="results-heading-wrapper">
-									<h2>Sökresultat</h2>
+									<h2 className="search-results-heading">Sökresultat</h2>
 									<SearchSort />
 								</div>
 								<div className="company-wrapper">

@@ -1,29 +1,5 @@
-.category-page-content-wrapper {
-    position: fixed;
-    bottom: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    height: 65%;
-    width: 100%;
-    background-color: #fff;
-    overflow-y: auto;
-    padding: 32px 16px;
-    margin: 0 auto;
-    transition: all 0.5s ease-in-out;
-    z-index: 2;
-}
-
-.company-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.map-focus-list {
-    height: 20%;
-    transition: all 0.5s ease-in-out;
+.category-page-heading {
+    padding-left: 16px;
 }
 
 @media (min-width: 1024px) {
@@ -33,10 +9,5 @@
         justify-content: space-between;
         align-items: flex-start;
         padding: 16px;
-    }
-    .category-page-content-wrapper {
-        position: relative;
-        border-radius: none;
-        padding-top: 0;
     }
 }

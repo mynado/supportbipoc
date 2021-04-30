@@ -26,34 +26,39 @@ const CategoryPage = () => {
 	}, [userLocation, currentUserLocation, loading])
 
 	return (
-		<div className="category-page">
-			<div
-				className="map-wrapper"
-				onClick={() => {
-					setMapFocus(true)
-				}}>
-				<MapView companies={companies} page={'search'}/>
-			</div>
-			<div 
-				className={`category-page-content-wrapper ${mapFocus ? 'map-focus-list' : ''}`}
-				onClick={() => {
-					setMapFocus(false)
-				}}>
-				<h2 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h2>
-				<div className="company-wrapper">
-					{
-						companies
-						? (companies.map(company => (
-							<Company
-								company={company}
-								key={company.id}
-								userLocation={currentUserLocation}/>
-						)))
-						: 'Finns inga sökresultat'
-					}
-				</div>
-			</div>
-		</div>
+		<>
+			{
+				companies
+					? (
+						<div className="category-page">
+							<div
+								className="map-wrapper"
+								onClick={() => {
+									setMapFocus(true)
+								}}>
+								<MapView companies={companies} page={'search'}/>
+							</div>
+							<div 
+								className={`company-container row ${mapFocus ? 'map-focus-list' : ''}`}
+								onClick={() => {
+									setMapFocus(false)
+								}}>
+								<h2 className="category-page-heading">{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h2>
+								<div className="company-wrapper">
+									{
+										companies.map(company => (
+											<Company
+												company={company}
+												key={company.id}
+												userLocation={currentUserLocation}/>
+										))
+									}
+								</div>
+							</div>
+						</div>
+					) : <p>Finns inga sökresultat</p>
+			}
+		</>
 	)
 }
 

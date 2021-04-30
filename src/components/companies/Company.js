@@ -31,7 +31,7 @@ const Company = (props) => {
 	}
 
 	return (
-		<div className="col-12 col-sm-6 col-md-4 mb-4">
+		<div className="col-12 col-sm-6 col-md-4 mb-4 company-card-wrapper">
 			<Link to={`/companies/${props.company.slug}`}>
 				<div className="card company-card">
 					<div className="card-img-container">
@@ -42,7 +42,7 @@ const Company = (props) => {
 						{error && (<div className="alert alert-danger">{error}</div>)}
 						<div className="category-distance-wrapper"> 
 							<small>{props.company.category}</small>
-							<small>{ props.userLocation && `${getDistancefromLocation()} m away`}</small>
+							<small>{ props.userLocation && `${(getDistancefromLocation() / 1000).toFixed(2)} km`}</small>
 						</div>
 						<div className="d-flex justify-content-end">
 							{

@@ -47,7 +47,7 @@ const Navigation = () => {
 			<nav className="navbar navbar-expand-lg">
 				{ 
 					currentUser 
-						? (<NavLink to="/admin/home" className="navbar-brand">
+						? (<NavLink to="/companies" className="navbar-brand">
 								<img src={logo} className="navbar-logo" style={scroll ? {width: '120px'} : {width: '220px'}} alt="logo" /> 
 							</NavLink>)
 						: (<NavLink to="/" className="navbar-brand">
