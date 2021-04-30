@@ -35,6 +35,14 @@
 }
 
 @media (min-width: 1024px) {
+    .search-results-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
     .company-container {
         position: relative;
         border-radius: none;

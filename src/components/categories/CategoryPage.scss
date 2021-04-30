@@ -19,10 +19,16 @@
 }
 
 @media (min-width: 1024px) {
+    .category-page {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 16px;
+    }
     .category-page-content-wrapper {
         position: relative;
         border-radius: none;
         padding-top: 0;
-        margin: 32px auto;
     }
 }

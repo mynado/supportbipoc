@@ -22,7 +22,7 @@ const SearchResult = () => {
 			{
 				companies 
 					? (
-						<>
+						<div className="search-results-wrapper">
 							<div
 								className="map-wrapper"
 								onClick={() => {
@@ -47,7 +47,7 @@ const SearchResult = () => {
 									}	
 								</div>
 							</div>
-						</>
+						</div>
 					) : <p>Finns inga sökresultat</p>
 			}
 		</>

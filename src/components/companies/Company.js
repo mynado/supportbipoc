@@ -31,7 +31,7 @@ const Company = (props) => {
 	}
 
 	return (
-		<div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+		<div className="col-12 col-sm-6 col-md-4 mb-4">
 			<Link to={`/companies/${props.company.slug}`}>
 				<div className="card company-card">
 					<div className="card-img-container">

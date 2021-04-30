@@ -15,8 +15,8 @@ const MapView = (props) => {
   useEffect(() => {
     if (props.page === 'search') {
       setViewport({
-        width: "100vw",
-        height: "550px",
+        width: "100%",
+        height: "100vh",
         latitude: 55.6019,
         longitude: 12.9984,
         zoom: 13
