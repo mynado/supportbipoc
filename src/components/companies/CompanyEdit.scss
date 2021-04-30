@@ -3,9 +3,46 @@
     padding: 1rem;
 }
 
-@media (min-width: 900px) {
+.thumbnail-images-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 16px 16px 16px;
+}
+
+.edit-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-update {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    background-color: #3B2A1E;
+    color: #fff;
+}
+
+@media (min-width: 600px) {
     .company-edit-card {
         width: 600px;
         margin: 0 auto;
+    }
+
+    .image-wrapper {
+        width: 40%;
+        margin: 16px;
+    }
+
+    .btn-update {
+        display: block;
+        margin: 0 0 0 auto;
+        width: 200px;
     }
 }
