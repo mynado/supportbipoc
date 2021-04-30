@@ -9,7 +9,7 @@ const ImageSlider = (props) => {
 			{
 				props.images
 				? (props.images.map(image => (
-					<div key={image.id}>
+					<div className="slider-image" key={image.id}>
 						<img src={image.url} className="img-thumbnail" alt=""/>
 					</div>
 				)))

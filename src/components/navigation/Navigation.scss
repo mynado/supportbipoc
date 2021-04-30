@@ -114,14 +114,13 @@
 }
 
 .whitespace {
-  height: 4.5rem;
+  height: 59px;
 }
 
 @media (min-width: 992px) {
   .navbar-menu {
     position: inherit;
     width: 100%;
-    // display: block;
     background: none;
     color: #3b3430;
     border-top-left-radius: none;

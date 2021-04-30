@@ -4,3 +4,13 @@
     object-fit: cover;
     line-height: 0;
 }
+
+.slider-image {
+    height: auto;
+}
+
+@media (min-width: 1024px) {
+    .slider-image {
+        height: 400px;
+    }
+}

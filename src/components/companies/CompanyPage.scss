@@ -35,23 +35,6 @@ ul {
 }
 
 @media (min-width: 900px) {
-  .company {
-    &-content-container {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-      margin: 1rem auto;
-    }
-
-    &-image-container {
-      width: 50%;
-    }
-
-    &-info-container {
-      width: 50%;
-    }
-  }
-
   .company-page {
     &-info-details {
       justify-content: flex-start;
@@ -61,8 +44,9 @@ ul {
     }
   }
 
-  .carousel .carousel-slider {
-    height: 200px;
+  .company-wrapper {
+    overflow-y: auto;
+    height: 60vh;
   }
 
   .button-back {

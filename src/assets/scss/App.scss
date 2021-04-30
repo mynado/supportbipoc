@@ -4,6 +4,7 @@
 body {
   color: #3b3430;
   font-family: "Montserrat", sans-serif;
+  overflow: unset !important;
 }
 
 .change-color {
@@ -54,5 +55,11 @@ a {
     display: block;
     margin: 0 0 0 auto;
     width: 200px;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    overflow: hidden !important;
   }
 }
