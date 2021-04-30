@@ -36,6 +36,11 @@ ul {
 
 @media (min-width: 900px) {
   .company-page {
+    &-content-container {
+      overflow-y: auto;
+      height: 80vh;
+    }
+
     &-info-details {
       justify-content: flex-start;
     }

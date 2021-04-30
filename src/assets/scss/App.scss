@@ -4,7 +4,6 @@
 body {
   color: #3b3430;
   font-family: "Montserrat", sans-serif;
-  overflow: unset !important;
 }
 
 .change-color {
@@ -58,7 +57,7 @@ a {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   body {
     overflow: hidden !important;
   }
