@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import { FiEdit } from 'react-icons/fi'
 import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
@@ -12,7 +13,7 @@ const CompanyPage = () => {
 	const { currentUser } = useAuth()
 	const { companyName } = useParams()
 	const { company, loading } = useCompany(companyName)
-	const { images, imgLoading } = useImages(company)
+	const { images } = useImages(company)
 	const navigate = useNavigate()
 
 	if (loading) {
@@ -25,15 +26,15 @@ const CompanyPage = () => {
 				<div className="company-page-image-container">
 					<ImageSlider images={images}/>
 				</div>
-				{
-					currentUser && (
-						<div className="mt-3">
-							<Link to={`/companies/${company.slug}/edit`} className="btn btn-primary">Ändra</Link>
-						</div>
-					)
-				}
 				<div className="company-page-info-container">
-					<button onClick={() => navigate(-1)} className="btn button-custom button-back"><IoChevronBackSharp /></button>
+					<div className="button-container">
+						{
+							currentUser && (
+									<Link to={`/companies/${company.slug}/edit`} className="btn btn-custom"><FiEdit /></Link>
+							)
+						}
+						<button onClick={() => navigate(-1)} className="btn btn-custom"><IoChevronBackSharp /></button>
+					</div>
 					<h1>{company.name}</h1>
 					<p>{company.info}</p>
 					<div className="company-page-info-details">

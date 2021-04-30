@@ -29,23 +29,9 @@ ul {
   padding: 0;
 }
 
-.button-back {
-  display: block;
-  margin-bottom: 16px;
-}
-
-.button-back svg {
-  width: 24px;
-  height: 24px;
-}
-
-.button-custom {
-  padding: 0;
-}
-
-.btn-primary {
-  background-color: none !important;
-  border-color: none !important;
+.button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (min-width: 900px) {
