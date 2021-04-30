@@ -11,6 +11,8 @@ import Companies from './components/companies/Companies'
 import CompanyEdit from './components/companies/CompanyEdit'
 import CategoryPage from './components/categories/CategoryPage'
 import SearchResult from './components/search/SearchResults'
+import About from './components/pages/About'
+import Contact from './components/pages/Contact'
 
 function App() {
 	const homePage = useLocation().pathname === '/'
@@ -21,6 +23,14 @@ function App() {
 				<Routes>
 					<Route path="/">
 						<Home />
+					</Route>
+
+					<Route path="/about">
+						<About />
+					</Route>
+
+					<Route path="/contact">
+						<Contact />
 					</Route>
 
 					<Route path="/admin">
