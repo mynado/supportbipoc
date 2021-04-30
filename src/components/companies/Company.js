@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { RiDeleteBin6Line } from 'react-icons/ri'
 import { getDistance } from 'geolib'
 import { useAuth } from '../../contexts/AuthContext'
 import { db } from '../../firebase'
@@ -47,7 +48,7 @@ const Company = (props) => {
 						<div className="d-flex justify-content-end">
 							{
 								currentUser && (
-									<button onClick={handleDelete} className="btn ml-2">X</button>
+									<button onClick={handleDelete} className="btn ml-2"><RiDeleteBin6Line /></button>
 								)
 							}
 						</div>

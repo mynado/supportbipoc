@@ -27,10 +27,6 @@ function App() {
 						<Route path="/">
 							<AdminLogin />
 						</Route>
-						
-						<AuthRoute path="/home">
-							<Companies />
-						</AuthRoute>
 					</Route>
 
 					<Route path="/companies">

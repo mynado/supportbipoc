@@ -73,17 +73,12 @@ const Navigation = () => {
 								currentUser ? (
 									<div className="navbar-menu-list-container">
 										<li className="nav-item">
-											<NavLink to="/admin/home" onClick={() => setOpen(false)}>
-												Adminpanel
-											</NavLink>
-										</li>
-										<li className="nav-item">
 											<NavLink to="/companies" onClick={() => setOpen(false)}>
 												Företag
 											</NavLink>
 										</li>
 										<li className="nav-item">
-											<NavLink to="/admin/add-company" onClick={() => setOpen(false)}>
+											<NavLink to="/companies/add" onClick={() => setOpen(false)}>
 												Lägg till företag
 											</NavLink>
 										</li>
