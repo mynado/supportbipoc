@@ -144,7 +144,7 @@ const CompanyEdit = () => {
 								<label>Välj en kategori</label>
 								<select className="form-control" ref={categoryRef} defaultValue={company.category}>
 									<option value="barber">Barberare</option>
-									<option value="grocerie-store">Livsmedelsbutik</option>
+									<option value="grocery">Livsmedelsbutik</option>
 									<option value="restaurant">Restaurang</option>
 									<option value="store">Butik</option>
 									<option value="salon">Salong</option>

@@ -8,50 +8,41 @@ import fastfoodIcon from '../../assets/icons/categories/falafel.svg'
 
 const Categories = () => {
 	const location = useLocation()
+	const categories = [
+		{
+			name: 'Restauranger',
+			id: 'restaurant',
+			icon: restaurantIcon,
+		},
+		{
+			name: 'Barberare',
+			id: 'barber',
+			icon: barberIcon,
+		},
+		{
+			name: 'Livsmedelsbutik',
+			id: 'grocery',
+			icon: groceriesIcon,
+		},
+		{
+			name: 'Snabbmat',
+			id: 'fast-food',
+			icon: fastfoodIcon,
+		},
+	]
 
 	return (
 		<div className="categories-container">
 			<ul className={`row categories-list ${location.pathname !== '/' ? 'overflow-style' : ''}`}>
-				<li className="col-6 categories-list-item">
-					<Link to="/categories/restaurant" className="categories-link">
-						<img src={restaurantIcon} className="categories-icon" alt="" /> Restauranger
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link to="/categories/barber" className="categories-link">
-						<img src={barberIcon} className="categories-icon" alt="" /> Barber
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/livsmedelsbutik">
-						<img src={groceriesIcon} className="categories-icon" alt="" /> Livsmedel
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/fast-food">
-						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/fast-food">
-						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/fast-food">
-						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/fast-food">
-						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
-					</Link>
-				</li>
-				<li className="col-6 categories-list-item">
-					<Link className="categories-link" to="/categories/fast-food">
-						<img src={fastfoodIcon} className="categories-icon" alt="" /> Snabbmat
-					</Link>
-				</li>
+				{
+					categories.map(category => (
+						<li className="col-6 categories-list-item">
+							<Link to={`/categories/${category.id}`} className="categories-link">
+								<img src={category.icon} className="categories-icon" alt="" /> {category.name}
+							</Link>
+						</li>
+					))
+				}
 			</ul>
 		</div>
 	)
