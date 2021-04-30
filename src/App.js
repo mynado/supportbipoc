@@ -5,7 +5,6 @@ import Home from './components/Home'
 import Navigation from './components/navigation/Navigation'
 import AuthRoute from "./components/AuthRoute";
 import AdminLogin from './components/admin/AdminLogin'
-import AdminHome from './components/admin/AdminHome'
 import CompanyPage from './components/companies/CompanyPage'
 import CompanyAdd from './components/companies/CompanyAdd'
 import Companies from './components/companies/Companies'
@@ -30,7 +29,7 @@ function App() {
 						</Route>
 						
 						<AuthRoute path="/home">
-							<AdminHome />
+							<Companies />
 						</AuthRoute>
 					</Route>
 
