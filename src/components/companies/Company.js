@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { getDistance } from 'geolib'
 import { useAuth } from '../../contexts/AuthContext'
@@ -9,14 +9,13 @@ import './Company.scss'
 const Company = (props) => {
 	const { currentUser } = useAuth()
 	const [error, setError] = useState(false)
-	const navigate = useNavigate()
 
-	const handleDelete = async () => {
+	const handleDelete = async (e) => {
+		e.preventDefault()
 		setError(false)
 
 		try {
 			await db.collection('companies').doc(props.company.id).delete()
-			navigate(`/companies`)
 		} catch (e) {
 			setError(e.message)
 		}
