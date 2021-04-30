@@ -30,3 +30,13 @@ a {
 .container {
   padding: 1rem;
 }
+
+// Buttons
+.btn-custom {
+  padding: 0;
+
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+}
