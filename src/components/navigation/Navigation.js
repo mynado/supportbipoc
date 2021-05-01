@@ -8,7 +8,7 @@ import SearchBar from '../search/SearchBar'
 import Categories from '../categories/Categories'
 
 const Navigation = () => {
-	const node = useRef();
+	const node = useRef()
 	const button = useRef();
 	const location = useLocation()
 	const { currentUser, logout } = useAuth()

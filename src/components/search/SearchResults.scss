@@ -19,6 +19,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
+    padding-bottom: 40px;
 }
 
 .map-focus-list {
@@ -52,6 +53,11 @@
         border-radius: none;
         padding-top: 0;
     }
+
+    .company-wrapper {
+        padding-bottom: 100px;
+    }
+
     .results-heading-wrapper {
         align-items: flex-start;
     }
