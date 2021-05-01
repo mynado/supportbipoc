@@ -48,7 +48,7 @@ ul {
   .company-page {
     &-content-container {
       overflow-y: auto;
-      height: 80vh;
+      min-height: 100%;
     }
 
     &-info-details {
