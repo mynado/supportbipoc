@@ -10,7 +10,7 @@
     align-items: center;
     width: 100%;
     position: sticky;
-    top: 42px;
+    top: 40px;
     margin-top: 16px;
   }
 
@@ -52,7 +52,7 @@
 @media (min-width: 900px) {
   .search-bar {
     &-container {
-      top: 36px;
+      top: 22px;
     }
   }
 }

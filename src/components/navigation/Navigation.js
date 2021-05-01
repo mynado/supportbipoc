@@ -16,7 +16,7 @@ const Navigation = () => {
 	const [scroll, setScroll] = useState(false)
 
 	const listenScrollEvent = e => {
-		if (window.scrollY > 30) {
+		if (window.scrollY > 20) {
 			setScroll(true)
 		} else {
 			setScroll(false)
@@ -45,6 +45,7 @@ const Navigation = () => {
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg">
+				<div className="navbar-content-wrapper">
 				{ 
 					currentUser 
 						? (<NavLink to="/companies" className="navbar-brand">
@@ -102,6 +103,7 @@ const Navigation = () => {
 							}
 						</ul>
 					</div>
+				</div>
 				</div>
 			</nav>
 			<div className="whitespace"></div>
