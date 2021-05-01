@@ -1,3 +1,7 @@
+.remove-whitespace {
+  margin-top: -18px;
+}
+
 .company-page {
   &-image-container {
     margin-bottom: 1rem;
@@ -33,6 +37,10 @@ ul {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 16px;
+}
+
+.button-back {
+  margin-right: 6px;
   margin-left: -6px;
 }
 
@@ -54,6 +62,10 @@ ul {
   .company-wrapper {
     overflow-y: auto;
     height: 60vh;
+  }
+
+  .button-container {
+    justify-content: flex-end;
   }
 
   .button-back {

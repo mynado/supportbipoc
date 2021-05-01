@@ -22,18 +22,18 @@ const CompanyPage = () => {
 
 	return (
 		<>
-			<div className="company-page-content-container">
+			<div className={`company-page-content-container ${ currentUser ? 'remove-whitespace' : '' }`}>
 				<div className="company-page-image-container">
 					<ImageSlider images={images}/>
 				</div>
 				<div className="company-page-info-container">
 					<div className="button-container">
+						<button onClick={() => navigate(-1)} className="btn btn-custom button-back"><IoChevronBackSharp /></button>
 						{
 							currentUser && (
 									<Link to={`/companies/${company.slug}/edit`} className="btn btn-custom"><FiEdit /></Link>
 							)
 						}
-						<button onClick={() => navigate(-1)} className="btn btn-custom"><IoChevronBackSharp /></button>
 					</div>
 					<h1>{company.name}</h1>
 					<p>{company.info}</p>

@@ -16,7 +16,7 @@ const AdminLogin = () => {
 		try {
 			setLoading(true)
 			await login(emailRef.current.value, passwordRef.current.value)
-			navigate('/admin/home')
+			navigate('/companies')
 		} catch (e) {
 			setError("Could not log in. Please check your email address and your password.")
 			setLoading(false)
