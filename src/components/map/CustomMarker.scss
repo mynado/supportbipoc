@@ -1,3 +1,23 @@
 .mapboxgl-popup-content {
     padding-top: 16px;
 }
+
+.popup-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-title {
+    margin-bottom: 8px;
+}
+
+.company-link {
+    text-align: right;
+    font-size: 14px;
+    background-color: #3B2A1E;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #fff;
+    margin: 16px 0 0 auto;
+}

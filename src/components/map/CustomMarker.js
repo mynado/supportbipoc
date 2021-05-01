@@ -1,10 +1,19 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Marker, Popup } from "react-map-gl"
 import { IoLocationSharp } from 'react-icons/io5'
+import useClickOutside from '../../hooks/useClickOutside'
 import './CustomMarker.scss'
 
 const CustomMarker = ({ company }) => {
+    const node = useRef()
     const [showPopup, setShowPopup] = useState(false)
+
+    useClickOutside(node, () => {
+		if (showPopup) {
+			setShowPopup(!showPopup)
+		}
+	});
 
     return (
         <>
@@ -22,9 +31,10 @@ const CustomMarker = ({ company }) => {
                 closeOnClick={false}
                 onClose={() => setShowPopup(false)}
                 anchor="top" >
-                    <div>
-                        <p>{company.name}</p>
+                    <div className="popup-wrapper" ref={node}>
+                        <p className="company-title">{company.name}</p>
                         <small>{company.address}</small>
+                        <Link className="company-link" to={`/companies/${company.slug}`}>Läs mer</Link>
                     </div>
                 </Popup>
             )
