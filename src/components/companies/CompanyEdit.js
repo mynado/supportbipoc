@@ -97,8 +97,9 @@ const CompanyEdit = () => {
 			<div className="card company-edit-card">
 				<div className="card-body">
 					<h2>{company.name}</h2>
+					<small>Uppdatera företagsinformationen och lägg till bilder.</small>
 						{error && (<div className="alert alert-danger">{error}</div>)}
-						<form onSubmit={handleSubmit}>
+						<form onSubmit={handleSubmit} className="mt-4">
 							<div className="form-group">
 								<label>Företagsnamn</label>
 								<input 

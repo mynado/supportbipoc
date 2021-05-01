@@ -57,7 +57,7 @@ const AdminAddCompany = () => {
 				website: websiteRef.current.value,
 			})
 
-			navigate(`/companies/${slug}`)
+			navigate(`/companies/${slug}/edit`)
 		} catch (e) {
 			setError(e.message)
 			setLoading(false)
