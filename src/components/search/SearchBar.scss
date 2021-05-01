@@ -31,11 +31,6 @@
     position: absolute;
     right: 0.75rem;
   }
-
-  .filter-button {
-    position: absolute;
-    left: 1rem;
-  }
 }
 
 .search-bar-menu-open {
@@ -59,11 +54,5 @@
     &-container {
       top: 36px;
     }
-  }
-
-  .search-filter {
-    position: absolute;
-    top: 2rem;
-    z-index: -1;
   }
 }
