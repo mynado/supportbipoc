@@ -1,12 +1,11 @@
 .img-thumbnail {
     padding: 0;
-    width: 95%;
     object-fit: cover;
     line-height: 0;
 }
 
 .slider-image {
-    height: auto;
+    height: 200px;
 }
 
 @media (min-width: 1024px) {

@@ -5,7 +5,7 @@ import './ImageSlider.scss'
 
 const ImageSlider = (props) => {
 	return (
-		<Carousel showThumbs={false} showStatus={false}>
+		<Carousel showThumbs={false} showStatus={false} dynamicHeight={true}>
 			{
 				props.images
 				? (props.images.map(image => (
