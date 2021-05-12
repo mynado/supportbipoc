@@ -11,23 +11,21 @@ const SearchBar = ({ open }) => {
 	const query = new URLSearchParams(search).get('q');
 
 	return (
-		<>
-			<div className={`search-bar-container ${open ? 'search-bar-menu-open' : 'search-bar-menu-close'}`}>
-				<form onSubmit={handleSubmit} className="search-bar-form">
-					<div className="search-bar form-group d-flex">
-						<input 
-							onChange={handleChange}
-							type="text"
-							className="search-bar-input form-control"
-							id="search-query"
-							aria-describedby="search"
-							placeholder={query ? query : 'Search...'}
-							/>
-						<button className="search-bar-button" type="submit"><FiSearch /></button>
-					</div>
-				</form>
-			</div>
-		</>
+		<div className={`search-bar-container ${open ? 'search-bar-menu-open' : 'search-bar-menu-close'}`}>
+			<form onSubmit={handleSubmit} className="search-bar-form">
+				<div className="search-bar form-group d-flex">
+					<input 
+						onChange={handleChange}
+						type="text"
+						className="search-bar-input form-control"
+						id="search-query"
+						aria-describedby="search"
+						placeholder={query ? query : 'Search...'}
+						/>
+					<button className="search-bar-button" type="submit"><FiSearch /></button>
+				</div>
+			</form>
+		</div>
 	)
 }
 
