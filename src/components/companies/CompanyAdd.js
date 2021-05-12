@@ -135,10 +135,13 @@ const AdminAddCompany = () => {
 							<label>Välj en kategori</label>
 							<select className="form-control" ref={categoryRef}>
 								<option value="barber">Barberare</option>
+								<option value="car-service">Bilverkstad</option>
 								<option value="store">Butik</option>
+								<option value="hair-salon">Hårsalong</option>
 								<option value="grocery">Livsmedelsbutik</option>
+								<option value="nail-salon">Nagelsalong</option>
 								<option value="restaurant">Restaurang</option>
-								<option value="salon">Salong</option>
+								<option value="tailor">Skräddare</option>
 								<option value="fast-food">Snabbmat</option>
 							</select>
 						</div>
