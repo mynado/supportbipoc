@@ -21,54 +21,52 @@ const CompanyPage = () => {
 	}
 
 	return (
-		<>
-			<div className={`company-page-content-container ${ currentUser ? 'remove-whitespace' : '' }`}>
-				<div className="company-page-image-container">
-					<ImageSlider images={images}/>
+		<div className={`company-page-content-container ${ currentUser ? 'remove-whitespace' : '' }`}>
+			<div className="company-page-image-container">
+				<ImageSlider images={images}/>
+			</div>
+			<div className="company-page-info-container">
+				<div className="button-container">
+					<button onClick={() => navigate(-1)} className="btn btn-custom button-back"><IoChevronBackSharp /></button>
+					{
+						currentUser && (
+								<Link to={`/companies/${company.slug}/edit`} className="btn btn-custom"><FiEdit /></Link>
+						)
+					}
 				</div>
-				<div className="company-page-info-container">
-					<div className="button-container">
-						<button onClick={() => navigate(-1)} className="btn btn-custom button-back"><IoChevronBackSharp /></button>
-						{
-							currentUser && (
-									<Link to={`/companies/${company.slug}/edit`} className="btn btn-custom"><FiEdit /></Link>
-							)
-						}
-					</div>
-					<h1>{company.name}</h1>
-					<p>{company.info}</p>
-					<div className="company-page-info-details">
-						{
-							company.opening_hours && (
-								<small className="company-page-opening-hours">
-									<h5>Öppettider</h5>
-									<ul>
-										<li>Måndag: {company.opening_hours.monday}</li>
-										<li>Tisdag: {company.opening_hours.tuesday}</li>
-										<li>Onsdag: {company.opening_hours.wednesday}</li>
-										<li>Torsdag: {company.opening_hours.thursday}</li>
-										<li>Fredag: {company.opening_hours.friday}</li>
-										<li>Lördag: {company.opening_hours.saturday}</li>
-										<li>Söndag: {company.opening_hours.sunday}</li>
-									</ul>
-								</small>
-							)
-						}
-						{
-							company.address && (
-								<small className="company-page-address">
-									<h5>Adress</h5>
-									<p>{company.address}</p>
-								</small>
-							)
-						}
-					</div>
-				</div>
-				<div className="map-wrapper">
-					<MapView companies={[company]} page={'company-page'}/>
+				<h1>{company.name}</h1>
+				<p>{company.info}</p>
+				<div className="company-page-info-details">
+					{
+						company.opening_hours && (
+							<small className="company-page-opening-hours">
+								<h5>Öppettider</h5>
+								<ul>
+									<li>Måndag: {company.opening_hours.monday}</li>
+									<li>Tisdag: {company.opening_hours.tuesday}</li>
+									<li>Onsdag: {company.opening_hours.wednesday}</li>
+									<li>Torsdag: {company.opening_hours.thursday}</li>
+									<li>Fredag: {company.opening_hours.friday}</li>
+									<li>Lördag: {company.opening_hours.saturday}</li>
+									<li>Söndag: {company.opening_hours.sunday}</li>
+								</ul>
+							</small>
+						)
+					}
+					{
+						company.address && (
+							<small className="company-page-address">
+								<h5>Adress</h5>
+								<p>{company.address}</p>
+							</small>
+						)
+					}
 				</div>
 			</div>
-		</>
+			<div className="map-wrapper">
+				<MapView companies={[company]} page={'company-page'}/>
+			</div>
+		</div>
 	)
 }
 

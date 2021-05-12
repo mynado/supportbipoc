@@ -48,6 +48,15 @@ a {
   text-align: center;
   background-color: #3B2A1E;
   color: #fff;
+
+  &:hover {
+    a {
+      color: #3B2A1E;
+    }
+
+    background-color: #fff;
+    border: solid 1px #3B2A1E;
+  }
 }
 
 @media (min-width: 600px) {
