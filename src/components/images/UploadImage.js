@@ -43,7 +43,7 @@ const UploadImage = (props) => {
 			<input {...getInputProps()}/>
 			{
 				isDragActive 
-					? isDragAccept ? <p>Drop it like it's hot! 🔥🔫</p> : <p>We don't want that file! 😨</p>
+					? isDragAccept ? <p>Drop it!</p> : <p>This file format is not accepted.</p>
 					: <p className="upload-image-dropzone-text">Drop your files here!</p>
 			}
 
