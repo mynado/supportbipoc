@@ -40,24 +40,39 @@ const CompanyPage = () => {
 					{
 						company.opening_hours && (
 							<small className="company-page-opening-hours">
-								<h5>Öppettider</h5>
-								<ul>
-									<li>Måndag: {company.opening_hours.monday}</li>
-									<li>Tisdag: {company.opening_hours.tuesday}</li>
-									<li>Onsdag: {company.opening_hours.wednesday}</li>
-									<li>Torsdag: {company.opening_hours.thursday}</li>
-									<li>Fredag: {company.opening_hours.friday}</li>
-									<li>Lördag: {company.opening_hours.saturday}</li>
-									<li>Söndag: {company.opening_hours.sunday}</li>
-								</ul>
+								<h2>Öppettider</h2>
+								{
+									company.opening_hours.monday === company.opening_hours.friday ? (
+										<ul>
+											<li>Måndag - Fredag: {company.opening_hours.monday}</li>
+											<li>Lördag: {company.opening_hours.saturday}</li>
+											<li>Söndag: {company.opening_hours.sunday}</li>
+										</ul>
+									) : (
+										<ul>
+											<li>Måndag: {company.opening_hours.monday}</li>
+											<li>Tisdag: {company.opening_hours.tuesday}</li>
+											<li>Onsdag: {company.opening_hours.wednesday}</li>
+											<li>Torsdag: {company.opening_hours.thursday}</li>
+											<li>Fredag: {company.opening_hours.friday}</li>
+											<li>Lördag: {company.opening_hours.saturday}</li>
+											<li>Söndag: {company.opening_hours.sunday}</li>
+										</ul>
+									)
+								}
 							</small>
 						)
 					}
 					{
 						company.address && (
 							<small className="company-page-address">
-								<h5>Adress</h5>
-								<p>{company.address}</p>
+								<h2>Kontakt</h2>
+								<ul>
+									<li>Adress: {company.address}</li>
+									<li>Telefon: {company.phone}</li>
+									<li>Mail: {company.email}</li>
+									<li>Hemsida: <a href={company.website} target="_blank" rel="noopener noreferrer">{company.website.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0]}</a></li>
+								</ul>
 							</small>
 						)
 					}
