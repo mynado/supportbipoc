@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { FiEdit } from 'react-icons/fi'
+import { FaRegAddressCard } from 'react-icons/fa'
+import { HiOutlinePhone, HiLink, HiOutlineMail } from 'react-icons/hi'
 import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
 import useImages from '../../hooks/useImages'
@@ -36,6 +38,14 @@ const CompanyPage = () => {
 				</div>
 				<h1>{company.name}</h1>
 				<p>{company.info}</p>
+				{
+					company.address && (
+						<>
+							<h2>Adress</h2>
+							<p>{company.address}</p>
+						</>
+					)
+				}
 				<div className="company-page-info-details">
 					{
 						company.opening_hours && (
@@ -44,19 +54,49 @@ const CompanyPage = () => {
 								{
 									company.opening_hours.monday === company.opening_hours.friday ? (
 										<ul>
-											<li>Måndag - Fredag: {company.opening_hours.monday}</li>
-											<li>Lördag: {company.opening_hours.saturday}</li>
-											<li>Söndag: {company.opening_hours.sunday}</li>
+											<li className="company-list-item">
+												<span>Måndag - Fredag</span> 
+												<span>{company.opening_hours.monday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Lördag</span> 
+												<span>{company.opening_hours.saturday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Söndag</span>
+												<span>{company.opening_hours.sunday}</span>
+											</li>
 										</ul>
 									) : (
 										<ul>
-											<li>Måndag: {company.opening_hours.monday}</li>
-											<li>Tisdag: {company.opening_hours.tuesday}</li>
-											<li>Onsdag: {company.opening_hours.wednesday}</li>
-											<li>Torsdag: {company.opening_hours.thursday}</li>
-											<li>Fredag: {company.opening_hours.friday}</li>
-											<li>Lördag: {company.opening_hours.saturday}</li>
-											<li>Söndag: {company.opening_hours.sunday}</li>
+											<li className="company-list-item">
+												<span>Måndag</span> 
+												<span>{company.opening_hours.monday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Tisdag</span> 
+												<span>{company.opening_hours.tuesday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Onsdag</span> 
+												<span>{company.opening_hours.wednesday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Torsdag</span> 
+												<span>{company.opening_hours.thursday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Fredag</span> 
+												<span>{company.opening_hours.friday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Lördag</span>
+												<span>{company.opening_hours.saturday}</span>
+											</li>
+											<li className="company-list-item">
+												<span>Söndag</span> 
+												<span>{company.opening_hours.sunday}</span>
+											</li>
 										</ul>
 									)
 								}
@@ -64,17 +104,31 @@ const CompanyPage = () => {
 						)
 					}
 					{
-						company.address && (
-							<small className="company-page-address">
+						company.phone || company.email || company.website ? (
+							<small className="company-page-contact">
 								<h2>Kontakt</h2>
 								<ul>
-									<li>Adress: {company.address}</li>
-									<li>Telefon: {company.phone}</li>
-									<li>Mail: {company.email}</li>
-									<li>Hemsida: <a href={company.website} target="_blank" rel="noopener noreferrer">{company.website.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0]}</a></li>
+									{company.phone && (
+										<li className="company-list-item">
+											<span><HiOutlinePhone /></span>
+											<span>{company.phone}</span>
+										</li>
+									)}
+									{company.email && (
+										<li className="company-list-item">
+											<span><HiOutlineMail /></span>
+											<span>{company.email}</span>
+										</li>
+									)}
+									{company.website && (
+										<li className="company-list-item">
+											<span><HiLink /></span>
+											<span><a href={company.website} target="_blank" rel="noopener noreferrer">{company.website.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0]}</a></span>
+										</li>
+									)}
 								</ul>
 							</small>
-						)
+						) : ('')
 					}
 				</div>
 			</div>

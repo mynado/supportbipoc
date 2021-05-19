@@ -28,6 +28,12 @@ ul {
   padding: 0;
 }
 
+.company-list-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .button-container {
   display: flex;
   justify-content: flex-start;
@@ -48,11 +54,16 @@ ul {
 
     &-info-details {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
     }
     
     &-opening-hours {
       margin-right: 2rem;
+      width: 35%;
+    }
+
+    &-contact {
+      width: 35%;
     }
   }
 
