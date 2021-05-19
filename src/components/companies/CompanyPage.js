@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { FiEdit } from 'react-icons/fi'
-import { FaRegAddressCard } from 'react-icons/fa'
 import { HiOutlinePhone, HiLink, HiOutlineMail } from 'react-icons/hi'
 import { useAuth } from '../../contexts/AuthContext'
 import useCompany from '../../hooks/useCompany'
